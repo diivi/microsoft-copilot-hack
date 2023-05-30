@@ -7,12 +7,16 @@ const prisma = new PrismaClient();
 
 const createCard = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const { cardLabel, cap } = createCardSchema.parse(req.body);
+    const { cardLabel, cap, bank, cardNumber } = createCardSchema.parse(
+      req.body
+    );
     const userId = res.locals.userId;
 
     const card = await prisma.card.create({
       data: {
         label: cardLabel,
+        bank,
+        cardNumber,
         userId: userId,
         cap: cap,
         currentSpent: 0,
@@ -39,7 +43,7 @@ const getUserCards = async (req: Request, res: Response) => {
   }
 };
 
-const getCardDetils = async (req: Request, res: Response) => {
+const getCardDetails = async (req: Request, res: Response) => {
   try {
     const cardId = req.params.cardId;
     const card = await prisma.card.findUnique({
@@ -72,4 +76,18 @@ const updateCap = async (req: Request, res: Response) => {
   }
 };
 
-export { createCard, getUserCards, getCardDetils, updateCap };
+const deleteCard = async (req: Request, res: Response) => {
+  try {
+    const cardId = req.params.cardId;
+    const card = await prisma.card.delete({
+      where: {
+        id: cardId,
+      },
+    });
+    res.status(200).json({ card });
+  } catch (err: any) {
+    errorResponseHandler(res, err, "Error while deleting card");
+  }
+};
+
+export { createCard, getUserCards, getCardDetails, updateCap, deleteCard };

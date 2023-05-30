@@ -17,6 +17,8 @@ model User {
 model Card {
   id            String     @id @default(uuid())
   label         String
+  bank          String
+  cardNumber    Int
   user          User       @relation(fields: [userId], references: [id])
   userId        String
   transactions  Transaction[]
