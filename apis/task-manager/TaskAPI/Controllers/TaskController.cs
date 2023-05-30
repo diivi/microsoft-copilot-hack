@@ -17,18 +17,19 @@ namespace TaskAPI.Controllers
 
         // GET: Task
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TaskDetail>>> GetTaskItems()
+        public async Task<ActionResult<IEnumerable<TaskDetail>>> GetTaskItems([FromQuery] int owner_id)
         {
-            return await _context.TaskItems.ToListAsync();
+            var tasks = await _context.TaskItems.Where(t => t.owner_id == owner_id).ToListAsync();
+            return tasks;
         }
 
         // GET: Task/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<TaskDetail>> GetTaskDetail(int id)
+        public async Task<ActionResult<TaskDetail>> GetTaskDetail(int id, [FromQuery] int owner_id)
         {
             var taskDetail = await _context.TaskItems.FindAsync(id);
 
-            if (taskDetail == null)
+            if (taskDetail == null || taskDetail.owner_id != owner_id)
             {
                 return NotFound();
             }
@@ -38,9 +39,9 @@ namespace TaskAPI.Controllers
 
         // PUT: Task/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTaskDetail(int id, TaskDetail taskDetail)
+        public async Task<IActionResult> PutTaskDetail(int id, TaskDetail taskDetail, [FromQuery] int owner_id)
         {
-            if (id != taskDetail.Id)
+            if (id != taskDetail.Id || taskDetail.owner_id != owner_id)
             {
                 return BadRequest();
             }
@@ -53,20 +54,21 @@ namespace TaskAPI.Controllers
 
         // POST: Task
         [HttpPost]
-        public async Task<ActionResult<TaskDetail>> PostTaskDetail(TaskDetail taskDetail)
+        public async Task<ActionResult<TaskDetail>> PostTaskDetail(TaskDetail taskDetail, [FromQuery] int owner_id)
         {
+            taskDetail.owner_id = owner_id;
             _context.TaskItems.Add(taskDetail);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetTaskDetail), new { id = taskDetail.Id }, taskDetail);
+            return CreatedAtAction(nameof(GetTaskDetail), new { id = taskDetail.Id, owner_id }, taskDetail);
         }
 
         // DELETE: Task/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTaskDetail(int id)
+        public async Task<IActionResult> DeleteTaskDetail(int id, [FromQuery] int owner_id)
         {
             var taskDetail = await _context.TaskItems.FindAsync(id);
-            if (taskDetail == null)
+            if (taskDetail == null || taskDetail.owner_id != owner_id)
             {
                 return NotFound();
             }
