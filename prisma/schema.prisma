@@ -6,9 +6,33 @@ datasource db {
 generator client {
   provider = "prisma-client-js"
 }
+model User {
+  id          String     @id @default(uuid())
+  name        String?
+  cards       Card[]
+  transactions Transaction[]
+  totalSpent  Float?
+}
 
+model Card {
+  id            String     @id @default(uuid())
+  label         String
+  user          User       @relation(fields: [userId], references: [id])
+  userId        String
+  transactions  Transaction[]
+  cap           Float
+  currentSpent  Float
+}
 
-model User{
-    id       String      @id @default(uuid())
-    name     String
+model Transaction {
+  id          String   @id @default(uuid())
+  type        String
+  amount      Float
+  source      String
+  card        Card     @relation(fields: [cardId], references: [id])
+  cardId      String
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String
+  tags        String[]
+  date        DateTime
 }
