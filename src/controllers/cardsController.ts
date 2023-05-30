@@ -1,25 +1,27 @@
 import { NextFunction, Request, Response } from "express";
 import { PrismaClient } from "@prisma/client";
+import { createCardSchema, updateCapSchema } from "../schemas/cardSchemas.js";
+import errorResponseHandler from "../utils/errorHandler.js";
 
 const prisma = new PrismaClient();
 
 const createCard = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const { cardLabel, cap } = req.body;
+    const { cardLabel, cap } = createCardSchema.parse(req.body);
     const userId = res.locals.userId;
 
     const card = await prisma.card.create({
       data: {
         label: cardLabel,
         userId: userId,
-        cap: parseInt(cap),
+        cap: cap,
         currentSpent: 0,
       },
     });
 
     res.status(200).json({ card });
-  } catch (err) {
-    console.error(err);
+  } catch (err: any) {
+    errorResponseHandler(res, err, "Error while adding card");
   }
 };
 
@@ -32,9 +34,42 @@ const getUserCards = async (req: Request, res: Response) => {
       },
     });
     res.status(200).json({ cards });
-  } catch (err) {
-    console.error(err);
+  } catch (err: any) {
+    errorResponseHandler(res, err, "Error while fetching user cards");
   }
 };
 
-export { createCard, getUserCards };
+const getCardDetils = async (req: Request, res: Response) => {
+  try {
+    const cardId = req.params.cardId;
+    const card = await prisma.card.findUnique({
+      where: {
+        id: cardId,
+      },
+    });
+    res.status(200).json({ card });
+  } catch (err: any) {
+    errorResponseHandler(res, err, "Error while fetching card details");
+  }
+};
+
+//handler to update cards cap
+const updateCap = async (req: Request, res: Response) => {
+  try {
+    const cardId = req.params.cardId;
+    const { cap } = updateCapSchema.parse(req.body);
+    const card = await prisma.card.update({
+      where: {
+        id: cardId,
+      },
+      data: {
+        cap: cap,
+      },
+    });
+    res.status(200).json({ card });
+  } catch (err: any) {
+    errorResponseHandler(res, err, "Error while updating card cap");
+  }
+};
+
+export { createCard, getUserCards, getCardDetils, updateCap };

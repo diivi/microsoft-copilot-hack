@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { PrismaClient } from "@prisma/client";
+import errorResponseHandler from "../utils/errorHandler.js";
 
 const prisma = new PrismaClient();
 
@@ -26,8 +27,8 @@ const handleUser = async (req: Request, res: Response, next: NextFunction) => {
     }
 
     next();
-  } catch (err) {
-    console.error(err);
+  } catch (err: any) {
+    errorResponseHandler(res, err, "Error while handling user");
   }
 };
 
@@ -42,8 +43,8 @@ const getUserDetails = async (req: Request, res: Response) => {
     console.log(user);
 
     console.log("userId", userId);
-  } catch (err) {
-    console.error(err);
+  } catch (err: any) {
+    errorResponseHandler(res, err, "Error while fetching user details");
   }
 };
 
