@@ -15,15 +15,14 @@ namespace TaskAPI.Controllers
             _context = context;
         }
 
-        // GET: Task
+        // GET: api/Task?owner_id=1
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TaskDetail>>> GetTaskItems([FromQuery] string owner_id)
+        public async Task<ActionResult<IEnumerable<TaskDetail>>> GetTaskDetails(string owner_id)
         {
-            var tasks = await _context.TaskItems.Where(t => t.owner_id == owner_id).ToListAsync();
-            return tasks;
+            return await _context.TaskItems.Where(task => task.owner_id == owner_id).ToListAsync();
         }
 
-        // GET: Task/5
+        // GET: Task/5?owner_id=1
         [HttpGet("{id}")]
         public async Task<ActionResult<TaskDetail>> GetTaskDetail(int id, [FromQuery] string owner_id)
         {
@@ -37,11 +36,11 @@ namespace TaskAPI.Controllers
             return taskDetail;
         }
 
-        // PUT: Task/5
+        // PUT: Task/5?owner_id=1
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTaskDetail(int id, TaskDetail taskDetail, [FromQuery] string owner_id)
+        public async Task<IActionResult> PutTaskDetail(int id, [FromQuery] string owner_id, TaskDetail taskDetail)
         {
-            if (id != taskDetail.Id || taskDetail.owner_id != owner_id)
+            if (id != taskDetail.Id || owner_id != taskDetail.owner_id)
             {
                 return BadRequest();
             }
@@ -52,18 +51,18 @@ namespace TaskAPI.Controllers
             return NoContent();
         }
 
-        // POST: Task
+        // POST: Task?owner_id=1
         [HttpPost]
-        public async Task<ActionResult<TaskDetail>> PostTaskDetail(TaskDetail taskDetail, [FromQuery] string owner_id)
+        public async Task<ActionResult<TaskDetail>> PostTaskDetail([FromQuery] string owner_id, TaskDetail taskDetail)
         {
             taskDetail.owner_id = owner_id;
             _context.TaskItems.Add(taskDetail);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetTaskDetail), new { id = taskDetail.Id, owner_id }, taskDetail);
+            return CreatedAtAction(nameof(GetTaskDetail), new { id = taskDetail.Id, owner_id = taskDetail.owner_id }, taskDetail);
         }
 
-        // DELETE: Task/5
+        // DELETE: Task/5?owner_id=1
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTaskDetail(int id, [FromQuery] string owner_id)
         {

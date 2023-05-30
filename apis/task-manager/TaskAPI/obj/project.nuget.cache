@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "h4sBv4Y2mwF03jHQCdJjbY5XmVP+1O0Gi6laBy8I5/WlKmt1Jwl1wc6bbQ4sex/NJ7zH2bn4ci3mxvHwrSoccg==",
+  "dgSpecHash": "crfBwnDoqIRbLEeUPJWxLV5hFc7mpiLqMvRsvPrOp8RBd0DrYvHngc3gKEzP9OUDdk0oun8pDKZxxC8ToTMGzA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\s3jan\\Downloads\\TaskApi\\apis\\task-manager\\TaskAPI\\TaskAPI.csproj",
+  "projectFilePath": "C:\\Users\\s3jan\\Downloads\\micro\\microsoft-copilot-hack\\apis\\task-manager\\TaskAPI\\TaskAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\s3jan\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.5\\microsoft.aspnetcore.openapi.7.0.5.nupkg.sha512",
     "C:\\Users\\s3jan\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.5\\microsoft.entityframeworkcore.7.0.5.nupkg.sha512",

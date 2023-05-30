@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\s3jan\\Downloads\\TaskApi\\apis\\task-manager\\TaskAPI\\TaskAPI.csproj": {}
+    "C:\\Users\\s3jan\\Downloads\\micro\\microsoft-copilot-hack\\apis\\task-manager\\TaskAPI\\TaskAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\s3jan\\Downloads\\TaskApi\\apis\\task-manager\\TaskAPI\\TaskAPI.csproj": {
+    "C:\\Users\\s3jan\\Downloads\\micro\\microsoft-copilot-hack\\apis\\task-manager\\TaskAPI\\TaskAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\s3jan\\Downloads\\TaskApi\\apis\\task-manager\\TaskAPI\\TaskAPI.csproj",
+        "projectUniqueName": "C:\\Users\\s3jan\\Downloads\\micro\\microsoft-copilot-hack\\apis\\task-manager\\TaskAPI\\TaskAPI.csproj",
         "projectName": "TaskAPI",
-        "projectPath": "C:\\Users\\s3jan\\Downloads\\TaskApi\\apis\\task-manager\\TaskAPI\\TaskAPI.csproj",
+        "projectPath": "C:\\Users\\s3jan\\Downloads\\micro\\microsoft-copilot-hack\\apis\\task-manager\\TaskAPI\\TaskAPI.csproj",
         "packagesPath": "C:\\Users\\s3jan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\s3jan\\Downloads\\TaskApi\\apis\\task-manager\\TaskAPI\\obj\\",
+        "outputPath": "C:\\Users\\s3jan\\Downloads\\micro\\microsoft-copilot-hack\\apis\\task-manager\\TaskAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\s3jan\\AppData\\Roaming\\NuGet\\NuGet.Config",
