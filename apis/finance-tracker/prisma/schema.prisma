@@ -1,0 +1,63 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("SUPABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id           String        @id @default(uuid())
+  name         String?
+  cards        Card[]
+  transactions Transaction[]
+  totalSpent   Float?
+}
+
+model Card {
+  id             String        @id @default(uuid())
+  label          String
+  bank           String
+  cardNumber     Int
+  user           User          @relation(fields: [userId], references: [id])
+  userId         String
+  transactions   Transaction[]
+  cap            Float
+  currentSpent   Float
+}
+
+model Transaction {
+  id          String       @id @default(uuid())
+  label       String
+  type        String
+  amount      Float
+  source      String
+  card        Card?         @relation(fields: [cardId], references: [id])
+  cardId      String?
+  user        User         @relation(fields: [userId], references: [id])
+  userId      String
+  tags        TransactionsOnTags[]        
+  date        DateTime
+  
+}
+
+//create a model Tag with many to many relation with transactions
+model Tag {
+  id          String       @id @default(uuid())
+  name        String       @unique
+  cap         Float
+  transactions TransactionsOnTags[]
+}
+
+
+model TransactionsOnTags{
+  
+  tagId String 
+  tags Tag @relation(fields: [tagId], references: [id])
+  transactionId String
+  transaction Transaction @relation(fields: [transactionId], references: [id])
+
+  
+  @@id([tagId, transactionId])
+}
