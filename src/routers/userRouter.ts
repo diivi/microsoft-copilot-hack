@@ -5,6 +5,6 @@ const userRouter: Router = express.Router();
 
 userRouter.use(handleUser);
 
-userRouter.get("/getuser/:userId", getUserDetails);
+userRouter.get("/getuser/", getUserDetails);
 
 export default userRouter;
