@@ -1,4 +1,5 @@
 import { Box, Paper } from "@mui/material";
+import FinanceInfoCard from "../Components/FinanceInfographicsCard";
 
 const FinancePage = () => {
   return (
@@ -6,7 +7,8 @@ const FinancePage = () => {
       {/* First Column */}
       <Box className="flex-[1_1_10%] h-full flex flex-col">
         {/* finance graph content */}
-        <Paper className="flex-[1_1_5%]">Infographics</Paper>
+
+        <Paper className="flex-[1_1_5%]">Finance Info</Paper>
         {/* transactions history*/}
         <Paper className="flex-1">Transactions</Paper>
       </Box>
