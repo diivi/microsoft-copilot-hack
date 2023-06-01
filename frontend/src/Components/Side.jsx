@@ -5,7 +5,7 @@
 function Side() {
   return (
     <>
-      <div className="bg-gray h-screen w-1/5 pl-4">
+      <div className="bg-sideBg min-h-full  w-1/5 pl-4">
         <div className="text-white text-left text-2xl font-bold py-10 border-b-2">
           Swift.
         </div>

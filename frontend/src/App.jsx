@@ -1,14 +1,21 @@
 import "./App.css";
-import SidebarLayout from "./layout/sidebarLayout";
-import FinancePage from "./pages/finance";
+import Page1 from "./Components/Page1";
+import Side from "./Components/Side";
+// import SidebarLayout from "./layout/sidebarLayout";
+// import FinancePage from "./pages/finance";
 // import FinancePage from "./pages/finance";
 
 const App = () => {
   return (
     <>
-      <SidebarLayout>
+      <div className="flex">
+        <Side/>
+        <Page1 />
+      </div>
+      
+      {/* <SidebarLayout>
         <FinancePage />
-      </SidebarLayout>
+      </SidebarLayout> */}
     </>
   );
 };
