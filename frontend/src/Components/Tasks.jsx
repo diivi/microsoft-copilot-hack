@@ -13,6 +13,26 @@ const Box = ({ heading, subheading }) => {
 };
 
 const Tasks = () => {
+  const currentDate = new Date();
+  const currentHour = currentDate.getHours();
+  let greeting;
+
+  if (currentHour >= 5 && currentHour < 12) {
+    greeting = 'Good Morning';
+  } else if (currentHour >= 12 && currentHour < 18) {
+    greeting = 'Good Afternoon';
+  } else {
+    greeting = 'Good Evening';
+  }
+
+  const options = {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  };
+
+  const formattedDate = currentDate.toLocaleDateString(undefined, options);
   return (
     <>
         <div className="flex flex-row items-center p-4">
@@ -20,8 +40,8 @@ const Tasks = () => {
             <FaUser />
           </div>
           <div className="flex flex-col">
-            <h4>Good Morning Ary Bha</h4>
-            <h1>Mon, 15 May, 2023</h1>
+            <h4>{greeting} Ary Bha</h4>
+            <h1>{formattedDate}</h1>
           </div>
         </div>
         <div className="grid grid-cols-2 m-4">
