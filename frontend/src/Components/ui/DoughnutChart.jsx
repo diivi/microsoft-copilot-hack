@@ -1,5 +1,4 @@
 import "chart.js/auto";
-
 import { Doughnut } from "react-chartjs-2";
 import { useEffect, useState } from "react";
 
@@ -7,49 +6,41 @@ const DoughnutChart = () => {
   const [data, setData] = useState({
     datasets: [],
   });
-  const [config, setConfig] = useState();
+  const [config, setConfig] = useState(null); // Initialize config as null instead of undefined
 
   useEffect(() => {
-    // const DATA_COUNT = 5;
-    // const NUMBER_CFG = { count: DATA_COUNT, min: 0, max: 100 };
-
     const chartOptions = {
       responsive: true,
       plugins: {
-        legend: {
-          position: "top",
-        },
-        title: {
-          display: true,
-          text: "Chart.js Doughnut Chart",
-        },
+        legend: false,
       },
     };
 
     const chartData = {
       datasets: [
         {
-          data: [10, 20, 30],
+          data: [10, 20, 30, 40],
           backgroundColor: [
-            "rgba(255, 99, 1, 0.5)",
-            "rgba(255, 205, 86, 0.5)",
-            "rgba(54, 162, 235, 0.5)",
+            "rgba(202, 165, 219, 1)",
+            "rgba(0, 40, 90, 1)",
+            "rgba(217, 217, 217, 1)",
+            "rgba(188, 219, 165, 1)",
           ],
-          borderColor: [
-            "rgb(255, 99, 80)",
-            "rgb(255, 205, 86)",
-            "rgb(54, 162, 235)",
-          ],
-          borderWidth: 1,
+          borderWidth: 0,
+          radius: "90%",
+          cutout: "60%",
+          innerRadius: "50%",
+          hoverOffset: 2,
         },
       ],
       labels: ["Red", "Green", "Blue"],
     };
+
     setData(chartData);
     setConfig(chartOptions);
   }, []);
 
-  return <Doughnut data={data} config={config} className="h-2" />;
+  return <Doughnut data={data} options={config} />;
 };
 
 export default DoughnutChart;
