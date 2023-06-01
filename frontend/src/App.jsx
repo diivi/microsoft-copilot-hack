@@ -1,12 +1,16 @@
-import './App.css';
-import Side from './Components/Side';
+import "./App.css";
+import SidebarLayout from "./layout/sidebarLayout";
+import FinancePage from "./pages/finance";
+// import FinancePage from "./pages/finance";
 
-function App() {
+const App = () => {
   return (
-   <>
-    <Side />
-   </>
+    <>
+      <SidebarLayout>
+        <FinancePage />
+      </SidebarLayout>
+    </>
   );
-}
+};
 
 export default App;
