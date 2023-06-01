@@ -106,3 +106,39 @@ C:\Users\s3jan\Downloads\micro\microsoft-copilot-hack\apis\task-manager\TaskAPI\
 C:\Users\s3jan\Downloads\micro\microsoft-copilot-hack\apis\task-manager\TaskAPI\obj\Debug\net7.0\TaskAPI.pdb
 C:\Users\s3jan\Downloads\micro\microsoft-copilot-hack\apis\task-manager\TaskAPI\obj\Debug\net7.0\TaskAPI.genruntimeconfig.cache
 C:\Users\s3jan\Downloads\micro\microsoft-copilot-hack\apis\task-manager\TaskAPI\obj\Debug\net7.0\ref\TaskAPI.dll
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\bin\Debug\net7.0\appsettings.Development.json
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\bin\Debug\net7.0\appsettings.json
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\bin\Debug\net7.0\TaskAPI.exe
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\bin\Debug\net7.0\TaskAPI.deps.json
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\bin\Debug\net7.0\TaskAPI.runtimeconfig.json
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\bin\Debug\net7.0\TaskAPI.dll
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\bin\Debug\net7.0\TaskAPI.pdb
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\bin\Debug\net7.0\Microsoft.OpenApi.dll
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\obj\Debug\net7.0\TaskAPI.csproj.AssemblyReference.cache
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\obj\Debug\net7.0\TaskAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\obj\Debug\net7.0\TaskAPI.AssemblyInfoInputs.cache
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\obj\Debug\net7.0\TaskAPI.AssemblyInfo.cs
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\obj\Debug\net7.0\TaskAPI.csproj.CoreCompileInputs.cache
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\obj\Debug\net7.0\TaskAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\obj\Debug\net7.0\TaskAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\obj\Debug\net7.0\staticwebassets\msbuild.TaskAPI.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\obj\Debug\net7.0\staticwebassets\msbuild.build.TaskAPI.props
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.TaskAPI.props
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.TaskAPI.props
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\obj\Debug\net7.0\staticwebassets.pack.json
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\obj\Debug\net7.0\staticwebassets.development.json
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\obj\Debug\net7.0\scopedcss\bundle\TaskAPI.styles.css
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\obj\Debug\net7.0\TaskAPI.csproj.CopyComplete
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\obj\Debug\net7.0\TaskAPI.dll
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\obj\Debug\net7.0\refint\TaskAPI.dll
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\obj\Debug\net7.0\TaskAPI.pdb
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\obj\Debug\net7.0\TaskAPI.genruntimeconfig.cache
+C:\Users\s3jan\Downloads\New folder (3)\microsoft-copilot-hack\apis\task-manager\TaskAPI\obj\Debug\net7.0\ref\TaskAPI.dll
