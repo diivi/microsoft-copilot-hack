@@ -14,7 +14,7 @@ const App = () => {
       <>
       <ThemeProvider theme={themeOptions}>
       <SidebarLayout>
-        <FinancePage />
+        <Page1 />
       </SidebarLayout>
     </ThemeProvider>
     </>
