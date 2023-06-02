@@ -1,14 +1,16 @@
 // write reactjs code for a side navigation bar with background colour #1F1F21, the navigation bar should have a company name on top and it should have these nav links: Dashboard, Tasks, Finances. use tailwindcss for styling.
 
 // Path: frontend/src/Components/side.js
-
+import {Link} from 'react-router-dom'
 function Side() {
   return (
     <>
       <div className="bg-sideBg min-h-full  w-1/5 pl-4">
+        <Link to='/'>
         <div className="text-white text-left text-2xl font-bold py-10 border-b-2">
           Swift.
         </div>
+        </Link>
         <div className="text-white text-left text-xl font-bold py-4">
           Dashboard
         </div>

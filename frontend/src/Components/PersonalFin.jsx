@@ -3,9 +3,11 @@ import food from '../assets/food.png'
 import trv from '../assets/trv.png'
 import emi from '../assets/emi.png'
 import ent from '../assets/ent.png'
+import {Link} from 'react-router-dom'
 const PersonalFin = () => {
   return (
-    <div className="bg-white rounded-lg m-8 p-4">
+    <Link to='/finance'>
+    <div className="bg-white rounded-lg m-8 p-4 hover:bg-blue-500 hover:text-white transition duration-300 cursor-pointer">
         
     <h2 className="text-xl text-center mb-4 font-mono">Personal Finances</h2>
     <div className="flex">
@@ -44,6 +46,7 @@ const PersonalFin = () => {
       <div className="bg-zinc-300 rounded-lg w-11/12 h-1/4 p-4 mb-4"></div>
     </div>
   </div>
+  </Link>
   )
 }
 

@@ -1,7 +1,7 @@
-import Tasks from "./Tasks";
-import PersonalFin from "./PersonalFin";
-import Weather from "./Weather";
-import Url from "./Url";
+import Tasks from "../Components/Tasks";
+import PersonalFin from "../Components/PersonalFin";
+import Weather from "../Components/Weather";
+import Url from "../Components/Url";
 
 const Page1 = () => {
   return (
