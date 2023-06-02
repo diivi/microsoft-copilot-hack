@@ -13,6 +13,9 @@ const DoughnutChart = () => {
       responsive: true,
       plugins: {
         legend: false,
+        tooltips: {
+          enabled: false,
+        },
       },
     };
 

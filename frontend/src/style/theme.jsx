@@ -4,10 +4,10 @@ export const themeOptions = createTheme({
   palette: {
     mode: "light",
     primary: {
-      main: "rgba(188, 219, 165, 1)",
+      main: "#bcdba5",
     },
     secondary: {
-      main: "rgba(0, 40, 90, 1)",
+      main: "#00285a",
     },
     background: {
       default: "#eeeee9",
@@ -15,7 +15,7 @@ export const themeOptions = createTheme({
     text: {
       primary: "#000000",
       secondary: "#ffffff",
-      disabled: "rgba(0, 40, 90, 1)",
+      disabled: "#00285a",
     },
   },
   typography: {
