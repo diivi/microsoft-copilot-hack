@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 const PersonalFin = () => {
   return (
     <Link to='/finance'>
-    <div className="bg-white rounded-lg m-8 p-4 hover:bg-blue-500 hover:text-white transition duration-300 cursor-pointer">
+    <div className="bg-white rounded-lg m-8 p-4 hover:scale-105 hover:bg-blue-500 hover:text-white transition duration-300 cursor-pointer">
         
     <h2 className="text-xl text-center mb-4 font-mono">Personal Finances</h2>
     <div className="flex">
@@ -44,6 +44,9 @@ const PersonalFin = () => {
       <div className="bg-zinc-300 rounded-lg w-11/12 h-1/4 p-4 mb-4"></div>
       <div className="bg-zinc-300 rounded-lg w-11/12 h-1/4 p-4 mb-4"></div>
       <div className="bg-zinc-300 rounded-lg w-11/12 h-1/4 p-4 mb-4"></div>
+    </div>
+    <div className='flex justify-end'>
+      <button className="bg-boxHead text-mainGray px-20 py-3 rounded-2xl">Add</button>
     </div>
   </div>
   </Link>
