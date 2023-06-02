@@ -1,5 +1,6 @@
 import { Box, Paper } from "@mui/material";
 import FinanceInfoCard from "../Components/FinanceInfographicsCard";
+import CreditCard from "../Components/ui/CreditCard";
 
 const FinancePage = () => {
   return (
@@ -18,8 +19,11 @@ const FinancePage = () => {
 
         {/* Second Column */}
         <Box className="flex-1 h-full flex">
-          {/* credit card content */}
-          <Paper className="flex-1">Credit Cards</Paper>
+        <h1>Your Cards</h1>
+        <CreditCard/>
+        <ProgressBar progress={50} height={4}/>
+        <CreditCard/>
+        <ProgressBar progress={50} height={4}/>
         </Box>
       </Box>
     </Box>
