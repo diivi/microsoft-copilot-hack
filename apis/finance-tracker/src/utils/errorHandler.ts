@@ -8,8 +8,6 @@ const errorResponseHandler = (
   error?: Error | ZodError,
   message?: string
 ) => {
-  console.log(error);
-
   if (error instanceof ZodError) {
     res.status(404).json({ error: error.issues });
     return;

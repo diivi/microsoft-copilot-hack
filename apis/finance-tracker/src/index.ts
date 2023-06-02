@@ -1,4 +1,4 @@
-import express, { Request, Response } from "express";
+import express, { NextFunction, Request, Response } from "express";
 import userRouter from "./routers/userRouter.js";
 import { handleUser } from "./controllers/userController.js";
 import cardsRouter from "./routers/cardsRouter.js";
