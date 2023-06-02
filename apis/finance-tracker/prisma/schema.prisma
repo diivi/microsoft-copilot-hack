@@ -12,6 +12,7 @@ model User {
   name         String?
   cards        Card[]
   transactions Transaction[]
+  tags Tag[]
   totalSpent   Float?
 }
 
@@ -19,7 +20,7 @@ model Card {
   id             String        @id @default(uuid())
   label          String
   bank           String
-  cardNumber     Int
+  cardNumber     BigInt
   user           User          @relation(fields: [userId], references: [id])
   userId         String
   transactions   Transaction[]
@@ -48,6 +49,8 @@ model Tag {
   name        String       @unique
   cap         Float
   transactions TransactionsOnTags[]
+  user        User         @relation(fields: [userId], references: [id])
+  userId      String
 }
 
 

@@ -16,7 +16,7 @@ const createCard = async (req: Request, res: Response, next: NextFunction) => {
       data: {
         label: cardLabel,
         bank,
-        cardNumber,
+        cardNumber: cardNumber,
         userId: userId,
         cap: cap,
         currentSpent: 0,

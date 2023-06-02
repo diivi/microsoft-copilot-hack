@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Card" ALTER COLUMN "cardNumber" SET DATA TYPE BIGINT;
