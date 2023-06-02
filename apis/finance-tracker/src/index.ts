@@ -4,8 +4,11 @@ import { handleUser } from "./controllers/userController.js";
 import cardsRouter from "./routers/cardsRouter.js";
 import transactionsRouter from "./routers/transactionRouter.js";
 import tagsRouter from "./routers/tagsRouter.js";
+import cors from "cors";
 
 const app = express();
+
+app.use(cors());
 
 app.use(express.urlencoded({ extended: true }));
 

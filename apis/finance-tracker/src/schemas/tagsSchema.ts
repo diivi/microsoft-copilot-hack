@@ -5,7 +5,7 @@ const createTagRequestSchema = z.object({
   cap: z.number().min(0).max(10000000),
 });
 
-const editTagRequestSchema = z.lazy(() =>
+const editTagRequestSchema: any = z.lazy(() =>
   z
     .object({
       name: z.string().min(1).max(255).optional(),
