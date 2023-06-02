@@ -18,7 +18,6 @@ const CreditCard = () => {
             
           />
           </div>
-          ;
           {/* <img class="relative object-cover w-full h-full rounded-xl" src="https://i.imgur.com/kGkSg1v.png"/> */}
           {/* <div class="relative object-cover w-full h-full rounded-xl"/> */}
           <div class="w-full px-8 absolute top-10">
