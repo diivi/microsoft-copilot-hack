@@ -1,8 +1,9 @@
+import React from "react";
 import Transaction from "./ui/Transaction";
-import AddTransactionModal from "./AddTransactionModal";
 import useData from "../hooks/swrHook";
+import SkeletonLoading from "./ui/SkeletonLoading";
 
-const TransactionsList = ({ variant, cardsData }) => {
+const TransactionsList = ({ variant }) => {
   const { data, isLoading, isError, postData } = useData(
     "http://localhost:8000/getusertransactions/",
     {},
@@ -11,7 +12,8 @@ const TransactionsList = ({ variant, cardsData }) => {
       userId: 123456,
     }
   );
-  console.log("transactions", data);
+  console.log(data);
+
   const transactions = [
     {
       id: 1,
@@ -29,9 +31,24 @@ const TransactionsList = ({ variant, cardsData }) => {
   ];
 
   return (
-    <div>
-      {data &&
-        data.transactions.map((transaction) => (
+    <div className="w-full">
+      {isLoading ? (
+        <SkeletonLoading />
+      ) : data ? (
+        data.transactions.map((transaction) => {
+          return (
+            <Transaction
+              key={transaction.id}
+              transaction={transaction}
+              variant={variant}
+            />
+          );
+        })
+      ) : (
+        <h1>Error</h1>
+      )}
+
+      {/* {transactions.map((transaction) => (
           <Transaction
             key={transaction.id}
             amount={transaction.amount}
@@ -39,8 +56,7 @@ const TransactionsList = ({ variant, cardsData }) => {
             description={transaction.description}
             variant={variant}
           />
-        ))}
-      <AddTransactionModal cardsData={cardsData} postData={postData} />
+        ))} */}
     </div>
   );
 };

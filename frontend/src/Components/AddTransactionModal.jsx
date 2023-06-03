@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import * as React from "react";
 import Box from "@mui/material/Box";
+import { mutate } from "swr";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
@@ -69,11 +70,19 @@ const AddTransactionModal = ({ postData, cardsData }) => {
     console.log(data);
 
     await postData("http://localhost:8000/addtransaction/", data);
+    mutate("http://localhost:8000/getusercards/");
+    mutate("http://localhost:8000/getusertags/");
+    handleClose();
   };
 
   return (
     <div>
-      <Button variant="contained" color="secondary" onClick={handleOpen}>
+      <Button
+        sx={{ borderRadius: 4 }}
+        variant="contained"
+        color="secondary"
+        onClick={handleOpen}
+      >
         Add Transaction
       </Button>
       <Modal

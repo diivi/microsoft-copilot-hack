@@ -38,9 +38,9 @@ const CreditCard = ({ card }) => {
               <div className="pt-6 pr-6">
                 <div className="flex justify-between">
                   <div>
-                    <p className="font-mono text-xs">Expiry</p>
+                    <p className="font-mono text-xs">Bank</p>
                     <p className="font-mono tracking-wider text-sm">
-                      {card.expiry}
+                      {card.bank}
                     </p>
                   </div>
                   <div>

@@ -38,8 +38,10 @@ const AddCardModal = ({ postData }) => {
   };
 
   return (
-    <div>
-      <Button onClick={handleOpen}>Add Card</Button>
+    <div className="w-full px-7">
+      <Button className="w-full" variant="contained" onClick={handleOpen}>
+        Add Card
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}

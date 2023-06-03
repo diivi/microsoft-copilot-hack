@@ -8,6 +8,8 @@ import SkeletonLoading from "../Components/ui/SkeletonLoading";
 import AddTransactionModal from "../Components/AddTransactionModal";
 import TransactionsList from "../Components/TransactionsList";
 import { useState, useEffect } from "react";
+import CardStack from "../Components/CardStack";
+import TransactionsStack from "../Components/TransactionsStack";
 
 const FinancePage = () => {
   const [cards, setCards] = useState([]);
@@ -35,40 +37,26 @@ const FinancePage = () => {
         <Box className="flex-[1_1_10%] h-full flex flex-col">
           {/* finance graph content */}
 
-          <Paper
-            className="flex-[1_1_5%]"
+          <Box className="" sx={{ bgcolor: theme.palette.background.default }}>
+            <FinanceInfoCard />
+          </Box>
+          {/* transactions history*/}
+          <Box
+            className="flex-1 "
             sx={{ bgcolor: theme.palette.background.default }}
           >
-            <FinanceInfoCard />
-          </Paper>
-          {/* transactions history*/}
-          <Paper className="flex-1">
-            {data && <TransactionsList cardsData={data.cards} variant="page" />}
-          </Paper>
+            {data ? (
+              <TransactionsStack cardsData={data.cards} postData={postData} />
+            ) : null}
+          </Box>
         </Box>
 
         {/* Second Column */}
         <Box className="flex-1 h-full flex flex-col items-center">
-          <AddCardModal postData={postData} />
-          <h1>Your Cards</h1>
-
           {isLoading ? (
             <SkeletonLoading />
           ) : data ? (
-            data.cards.map((card) => {
-              return (
-                <>
-                  <CreditCard card={card} />
-                  {/* <ProgressBar
-                    progress={60}
-                    height={4}
-                    variant="card"
-                    total={120}
-                    label=""
-                  /> */}
-                </>
-              );
-            })
+            <CardStack cardData={data.cards} postData={postData} />
           ) : (
             <h1>Error</h1>
           )}
