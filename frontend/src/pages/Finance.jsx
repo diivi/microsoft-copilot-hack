@@ -2,6 +2,7 @@ import { Box, Paper } from "@mui/material";
 import FinanceInfoCard from "../Components/FinanceInfographicsCard";
 import CreditCard from "../Components/ui/CreditCard";
 import ProgressBar from "../Components/ui/ProgressBar";
+import TransactionsList from "../Components/TransactionsList";
 
 const FinancePage = () => {
   return (
@@ -15,7 +16,10 @@ const FinancePage = () => {
             <FinanceInfoCard />
           </Paper>
           {/* transactions history*/}
-          <Paper className="flex-1">Transactions</Paper>
+          <Paper className="flex-1">Transactions
+          <TransactionsList variant="page" />
+          </Paper>
+          
         </Box>
 
         {/* Second Column */}
