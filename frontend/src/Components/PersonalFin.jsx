@@ -1,4 +1,4 @@
-import { Card } from "@mui/material";
+import { Box, Card } from "@mui/material";
 import useData from "../hooks/swrHook";
 import DoughnutInfoCard from "./DoughnutInfoCard";
 import TransactionsStack from "./TransactionsStack";
@@ -35,9 +35,19 @@ const PersonalFin = () => {
       className="flex flex-col mx-5 my-2 items-center p-4 pt-8"
     >
       {data ? <DoughnutInfoCard tagsData={data.tags} /> : null}
-      {cardData ? (
-        <TransactionsStack cardsData={cardData.cards} postData={postData} />
-      ) : null}
+      <Box
+        sx={{
+          width: "100%",
+          borderRadius: "10px",
+          bgcolor: "transparent",
+          overflow: "auto",
+          maxHeight: 200,
+        }}
+      >
+        {cardData ? (
+          <TransactionsStack cardsData={cardData.cards} postData={postData} />
+        ) : null}
+      </Box>
     </Card>
   );
 };

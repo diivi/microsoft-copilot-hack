@@ -15,7 +15,7 @@ const TransactionsStack = ({ cardsData }) => {
   return (
     <>
       <Box className="flex flex-col items-center w-full p-4">
-        <Typography variant="h5" fontWeight={"bold"} className="self-start">
+        <Typography variant="h5" fontWeight={"bold"} className="self-start p-2">
           Transactions
         </Typography>
         <Box
@@ -27,9 +27,6 @@ const TransactionsStack = ({ cardsData }) => {
           className="flex flex-col mx-5 my-2 items-center p-2 pt-2 w-full"
           style={{ maxHeight: 400 }}
         >
-          {/* {data && data.transactions.length === 0 ? (
-            <Typography variant="button">No Transactions Created</Typography>
-          ) : ( */}
           {data && (
             <TransactionsList
               transactionsData={data.transactions}
