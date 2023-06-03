@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { Stack } from "@mui/material";
 import LinearProgress from "@mui/material/LinearProgress";
+import { Link } from "react-router-dom";
 
 import { useTheme } from "@mui/material";
 
@@ -32,48 +33,50 @@ export default function TaskProgressTile() {
                     console.log("click");
                 }}
             >
-                <CardContent
-                    sx={{
-                        px: "1.5rem",
-                        py: "2rem",
-                    }}
-                >
-                    <Typography
-                        fontSize={"1.2rem"}
-                        align="left"
-                        color={theme.palette.secondary.main}
-                    >
-                        tasks completed
-                    </Typography>
-                    <Stack
-                        direction="row"
-                        justifyContent="space-between"
-                        alignItems={"flex-end"}
-                        mb={"0.5rem"}
+                <Link to="/tasks">
+                    <CardContent
+                        sx={{
+                            px: "1.5rem",
+                            py: "2rem",
+                        }}
                     >
                         <Typography
-                            fontFamily={"Cutive"}
-                            fontSize={"5rem"}
+                            fontSize={"1.2rem"}
                             align="left"
-                            color={theme.palette.text.secondary}
+                            color={theme.palette.secondary.main}
                         >
-                            {data?.filter(task => task.isCompleted).length}
+                            tasks completed
                         </Typography>
-                        <Typography
-                            fontFamily={"Cutive"}
-                            fontSize={"2rem"}
-                            align="left"
-                            color={theme.palette.text.secondary}
+                        <Stack
+                            direction="row"
+                            justifyContent="space-between"
+                            alignItems={"flex-end"}
+                            mb={"0.5rem"}
                         >
-                            {data?.length}
-                        </Typography>
-                    </Stack>
-                    <LinearProgress
-                        variant="determinate"
-                        value={data?.filter(task => task.isCompleted).length / data?.length * 100}
-                        color="secondary"
-                    />
-                </CardContent>
+                            <Typography
+                                fontFamily={"Cutive"}
+                                fontSize={"5rem"}
+                                align="left"
+                                color={theme.palette.text.secondary}
+                            >
+                                {data?.filter(task => task.isCompleted).length}
+                            </Typography>
+                            <Typography
+                                fontFamily={"Cutive"}
+                                fontSize={"2rem"}
+                                align="left"
+                                color={theme.palette.text.secondary}
+                            >
+                                {data?.length}
+                            </Typography>
+                        </Stack>
+                        <LinearProgress
+                            variant="determinate"
+                            value={data?.filter(task => task.isCompleted).length / data?.length * 100}
+                            color="secondary"
+                        />
+                    </CardContent>
+                </Link>
             </CardActionArea>
         </Card>
     );
