@@ -6,7 +6,7 @@ import { Avatar, Stack } from '@mui/material';
 
 import { useTheme } from '@mui/material';
 
-export default function TaskTile() {
+export default function TaskTile(props) {
     const theme = useTheme()
     return (
         <Card sx={{
@@ -37,7 +37,7 @@ export default function TaskTile() {
                             align='left'
                             color={theme.palette.secondary.main}
                         >
-                            Water the plants
+                            {props.title}
                         </Typography>
                         <Avatar src="/" />
                     </Stack>
@@ -46,7 +46,7 @@ export default function TaskTile() {
                         align='left'
                         fontSize={"0.8rem"}
                     >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia
+                        {props.description}
                     </Typography>
                 </CardContent>
             </CardActionArea>

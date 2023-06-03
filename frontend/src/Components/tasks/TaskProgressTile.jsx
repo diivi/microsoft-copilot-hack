@@ -7,7 +7,16 @@ import LinearProgress from "@mui/material/LinearProgress";
 
 import { useTheme } from "@mui/material";
 
+import useData from "../../hooks/swrHook";
+
 export default function TaskProgressTile() {
+    const { data } = useData(
+        "https://task-mgmt.azurewebsites.net/Task",
+        {
+            owner_id: "abdc"
+        }
+    )
+
     const theme = useTheme()
     return (
         <Card
@@ -48,7 +57,7 @@ export default function TaskProgressTile() {
                             align="left"
                             color={theme.palette.text.secondary}
                         >
-                            2
+                            {data?.filter(task => task.isCompleted).length}
                         </Typography>
                         <Typography
                             fontFamily={"Cutive"}
@@ -56,7 +65,7 @@ export default function TaskProgressTile() {
                             align="left"
                             color={theme.palette.text.secondary}
                         >
-                            /5
+                            {data?.length}
                         </Typography>
                     </Stack>
                     <LinearProgress

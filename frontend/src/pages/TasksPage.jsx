@@ -5,9 +5,8 @@ import Typography from "@mui/material/Typography";
 import AddIcon from '@mui/icons-material/Add';
 import IconButton from '@mui/material/IconButton';
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import TaskDialog from "../Components/tasks/TaskDialog";
-import RefreshIcon from '@mui/icons-material/Refresh';
 
 import useData from "../hooks/swrHook";
 
@@ -64,19 +63,18 @@ export default function TasksPage() {
                     </Typography>
                     <Grid container spacing={2}>
                         {
-                            data?.map((task) => {
+                            data?.filter(task => !task.isCompleted).map((task) => {
                                 return (
-                                    task.isCompleted ? null :
-                                        <Grid item xs={12} sm={12} md={6} key={task.id}>
-                                            <TaskCard
-                                                key={task.id}
-                                                id={task.id}
-                                                title={task.title}
-                                                description={task.description}
-                                                completed={task.isCompleted}
-                                                dueDate={task.dueDate}
-                                            />
-                                        </Grid>
+                                    <Grid item xs={12} sm={12} md={6} key={task.id}>
+                                        <TaskCard
+                                            key={task.id}
+                                            id={task.id}
+                                            title={task.title}
+                                            description={task.description}
+                                            completed={task.isCompleted}
+                                            dueDate={task.dueDate}
+                                        />
+                                    </Grid>
                                 )
                             })
                         }
@@ -93,7 +91,7 @@ export default function TasksPage() {
                     </Typography>
                     <Grid container spacing={2}>
                         {
-                            data?.map((task) => {
+                            data?.filter(task => task.isCompleted).map((task) => {
                                 return (
                                     task.isCompleted ?
                                         <Grid item xs={12} sm={12} md={6} key={task.id}>

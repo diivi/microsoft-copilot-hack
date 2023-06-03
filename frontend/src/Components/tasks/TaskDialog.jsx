@@ -12,7 +12,6 @@ import Button from '@mui/material/Button';
 
 import { useEffect, useState } from 'react';
 
-import axios from 'axios';
 import dayjs from 'dayjs';
 
 import useData from '../../hooks/swrHook';
