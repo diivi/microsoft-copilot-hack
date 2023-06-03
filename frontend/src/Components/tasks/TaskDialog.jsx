@@ -76,7 +76,7 @@ export default function TaskDialog(props) {
                     props.isEdit ?
                         () => {
                             putData(
-                                props.id,
+                                `https://task-mgmt.azurewebsites.net/Task/${props.id}`,
                                 {
                                     id: props.id,
                                     title: title,
@@ -92,6 +92,7 @@ export default function TaskDialog(props) {
                         :
                         () => {
                             postData(
+                                `https://task-mgmt.azurewebsites.net/Task`,
                                 {
                                     id: 0,
                                     title: title,
@@ -99,7 +100,7 @@ export default function TaskDialog(props) {
                                     dueDate: dueDate,
                                     isCompleted: false,
                                     owner_id: "abdc"
-                                },
+                                }
                             )
 
                             props.handleClose()
