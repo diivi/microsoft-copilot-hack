@@ -23,7 +23,7 @@ const FinancePage = () => {
   useEffect(() => {
     if (data) {
       setCards(data.cards);
-      console.log(data)
+      console.log(data);
     }
   }, [data]);
 
@@ -43,7 +43,6 @@ const FinancePage = () => {
           </Paper>
           {/* transactions history*/}
           <Paper className="flex-1">
-            Transactions
             {data && <TransactionsList cardsData={data.cards} variant="page" />}
           </Paper>
         </Box>

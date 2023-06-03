@@ -49,7 +49,7 @@ const AddTransactionModal = ({ postData, cardsData }) => {
     "Entertainment",
     "Investments",
     "EMIs",
-    "",
+
     "Misc",
   ];
 
