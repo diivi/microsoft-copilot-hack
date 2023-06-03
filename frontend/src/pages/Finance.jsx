@@ -5,7 +5,7 @@ import CreditCard from "../Components/ui/CreditCard";
 import ProgressBar from "../Components/ui/ProgressBar";
 import AddCardModal from "../Components/AddCardModal";
 import SkeletonLoading from "../Components/ui/SkeletonLoading";
-import AddTransactionModal from "../Components/AddTaskModal";
+import AddTransactionModal from "../Components/AddTransactionModal";
 import TransactionsList from "../Components/TransactionsList";
 
 const FinancePage = () => {
@@ -35,8 +35,7 @@ const FinancePage = () => {
           {/* transactions history*/}
           <Paper className="flex-1">
             Transactions
-            <AddTransactionModal />
-            <TransactionsList variant="page" />
+            {data && <TransactionsList cardsData={data.cards} variant="page" />}
           </Paper>
         </Box>
 
