@@ -1,15 +1,9 @@
 // import { FaUser } from 'react-icons/fa';
 
-const Box = ({ heading, subheading }) => {
-  return (
-    <div className="p-4">
-      <div className="bg-white rounded-2xl p-4 shadow">
-        <h2 className="text-boxHead text-base mb-2 font-mono">{heading}</h2>
-        <p className="text-gray-600 text-sm font-mono">{subheading}</p>
-      </div>
-    </div>
-  );
-};
+import { Box, Grid } from "@mui/material";
+
+import TaskTile from "./tasks/TaskTile";
+import TaskProgressTile from "./tasks/TaskProgressTile";
 
 const Tasks = () => {
   const currentDate = new Date();
@@ -41,23 +35,22 @@ const Tasks = () => {
           <h1>{formattedDate}</h1>
         </div>
       </div>
-      <div className="grid grid-cols-2 m-4">
-        <div className="p-4">
-          <div className="bg-boxGreen rounded-2xl p-4 shadow">
-            <h2 className="text-boxHead text-base mb-2 font-mono">Box 1</h2>
-            <p className=" text-gray-600 text-sm font-mono">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-              magnam ab, necessitatibus nihil aliquid ullam!
-            </p>
-          </div>
-        </div>
-        <Box
-          heading="Box 2"
-          subheading="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint rem similique fugiat iure officia sunt!"
-        />
-        <Box heading="Box 3" subheading="Sed do eiusmod tempor incididunt." />
-        <Box heading="Box 4" subheading="Ut labore et dolore magna aliqua." />
-      </div>
+      <Box padding={"2rem"}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6} md={6}>
+            <TaskProgressTile />
+          </Grid>
+          <Grid item xs={12} sm={6} md={6}>
+            <TaskTile />
+          </Grid>
+          <Grid item xs={12} sm={6} md={6}>
+            <TaskTile />
+          </Grid>
+          <Grid item xs={12} sm={6} md={6}>
+            <TaskTile />
+          </Grid>
+        </Grid>
+      </Box>
     </>
   );
 };
