@@ -1,11 +1,20 @@
 // import { FaUser } from 'react-icons/fa';
 
-import { Box, Grid } from "@mui/material";
+import { Box, CircularProgress, Grid } from "@mui/material";
 
 import TaskTile from "./tasks/TaskTile";
 import TaskProgressTile from "./tasks/TaskProgressTile";
 
+import useData from "../hooks/swrHook";
+
 const Tasks = () => {
+
+  const { data, isLoading } = useData(
+    "https://task-mgmt.azurewebsites.net/Task",
+    {
+      owner_id: "abdc"
+    }
+  )
   const currentDate = new Date();
   const currentHour = currentDate.getHours();
   let greeting;
@@ -36,20 +45,27 @@ const Tasks = () => {
         </div>
       </div>
       <Box padding={"2rem"}>
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm={6} md={6}>
-            <TaskProgressTile />
+        {isLoading ? <CircularProgress /> :
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6} md={6}>
+              <TaskProgressTile />
+            </Grid>
+            {
+              data?.filter(task => !task.isCompleted).slice(0, 3).map((task) => {
+                return (
+                  <Grid item xs={12} sm={12} md={6} key={task.id}>
+                    <TaskTile
+                      key={task.id}
+                      id={task.id}
+                      title={task.title}
+                      description={task.description}
+                    />
+                  </Grid>
+                )
+              })
+            }
           </Grid>
-          <Grid item xs={12} sm={6} md={6}>
-            <TaskTile />
-          </Grid>
-          <Grid item xs={12} sm={6} md={6}>
-            <TaskTile />
-          </Grid>
-          <Grid item xs={12} sm={6} md={6}>
-            <TaskTile />
-          </Grid>
-        </Grid>
+        }
       </Box>
     </>
   );

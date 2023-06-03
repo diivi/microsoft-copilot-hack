@@ -12,7 +12,6 @@ import Button from '@mui/material/Button';
 
 import { useEffect, useState } from 'react';
 
-import axios from 'axios';
 import dayjs from 'dayjs';
 
 import useData from '../../hooks/swrHook';
@@ -33,10 +32,6 @@ export default function TaskDialog(props) {
             setTitle(props.title);
             setDescription(props.description);
             setDueDate(dayjs(props.dueDate));
-        } else {
-            setTitle("");
-            setDescription("");
-            setDueDate(dayjs());
         }
     }, [props.isEdit])
 
@@ -108,6 +103,9 @@ export default function TaskDialog(props) {
                             )
 
                             props.handleClose()
+                            setTitle("");
+                            setDescription("");
+                            setDueDate(dayjs());
 
                         }}>{props.isEdit ? "Change" : "Add Task"}</Button>
             </DialogActions>

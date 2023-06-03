@@ -12,6 +12,10 @@ export default {
         boxHead: "#00285A",
         boxGreen: "#BCDBA5",
       },
+      fontFamily: {
+        'sans': ['Roboto', 'Arial', 'sans-serif'],
+        'mono': ['Roboto Mono', 'monospace'],
+      },
     },
   },
   variants: {},

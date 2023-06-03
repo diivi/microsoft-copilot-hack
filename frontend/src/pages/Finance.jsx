@@ -6,6 +6,7 @@ import ProgressBar from "../Components/ui/ProgressBar";
 import AddCardModal from "../Components/AddCardModal";
 import SkeletonLoading from "../Components/ui/SkeletonLoading";
 import AddTransactionModal from "../Components/AddTaskModal";
+import TransactionsList from "../Components/TransactionsList";
 
 const FinancePage = () => {
   const { data, isLoading, isError, postData } = useData(
@@ -35,6 +36,7 @@ const FinancePage = () => {
           <Paper className="flex-1">
             Transactions
             <AddTransactionModal />
+            <TransactionsList variant="page" />
           </Paper>
         </Box>
 
