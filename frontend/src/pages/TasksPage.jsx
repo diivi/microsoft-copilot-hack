@@ -5,13 +5,19 @@ import Typography from "@mui/material/Typography";
 import AddIcon from '@mui/icons-material/Add';
 import IconButton from '@mui/material/IconButton';
 
-import axios from "axios";
 import { useEffect, useState } from "react";
 import TaskDialog from "../Components/tasks/TaskDialog";
 import RefreshIcon from '@mui/icons-material/Refresh';
 
+import useData from "../hooks/swrHook";
+
 export default function TasksPage() {
-    const [tasks, setTasks] = useState([]);
+    const { data } = useData(
+        "https://task-mgmt.azurewebsites.net/Task", {
+        owner_id: "abdc"
+    }
+    );
+
     const [open, setOpen] = useState(false);
     const [isEdit, setIsEdit] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -22,17 +28,6 @@ export default function TasksPage() {
 
     const [refresh, setRefresh] = useState(false);
     const handleRefresh = () => setRefresh(!refresh);
-
-    useEffect(() => {
-        axios.get("https://task-mgmt.azurewebsites.net/Task?owner_id=abdc")
-            .then((response) => {
-                console.log(response);
-                setTasks(response.data);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-    }, [refresh])
 
     return (
         <Stack direction={"column"} p={"2rem"} >
@@ -48,29 +43,15 @@ export default function TasksPage() {
                 >
                     Add a new task
                 </Typography>
-                <Stack direction="row"
-                    alignItems={"flex-end"}
-                    spacing={1}>
-
-                    <IconButton
-                        onClick={handleRefresh}
-                        sx={{
-                            "&:focus": {
-                                outline: "none",
-                            },
-                        }}>
-                        <RefreshIcon fontSize="inherit" />
-                    </IconButton>
-                    <IconButton
-                        onClick={handleOpen}
-                        sx={{
-                            "&:focus": {
-                                outline: "none",
-                            },
-                        }}>
-                        <AddIcon fontSize="inherit" />
-                    </IconButton>
-                </Stack>
+                <IconButton
+                    onClick={handleOpen}
+                    sx={{
+                        "&:focus": {
+                            outline: "none",
+                        },
+                    }}>
+                    <AddIcon fontSize="inherit" />
+                </IconButton>
             </Stack>
             <Stack gap={2} direction="column">
                 <Stack gap={2}>
@@ -83,7 +64,7 @@ export default function TasksPage() {
                     </Typography>
                     <Grid container spacing={2}>
                         {
-                            tasks.map((task) => {
+                            data?.map((task) => {
                                 return (
                                     task.isCompleted ? null :
                                         <Grid item xs={12} sm={12} md={6} key={task.id}>
@@ -112,7 +93,7 @@ export default function TasksPage() {
                     </Typography>
                     <Grid container spacing={2}>
                         {
-                            tasks.map((task) => {
+                            data?.map((task) => {
                                 return (
                                     task.isCompleted ?
                                         <Grid item xs={12} sm={12} md={6} key={task.id}>

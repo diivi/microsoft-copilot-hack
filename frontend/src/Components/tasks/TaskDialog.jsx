@@ -15,7 +15,15 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import dayjs from 'dayjs';
 
+import useData from '../../hooks/swrHook';
+
 export default function TaskDialog(props) {
+    const { postData, putData } = useData(
+        "https://task-mgmt.azurewebsites.net/Task", {
+        owner_id: "abdc"
+    }
+    );
+
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [dueDate, setDueDate] = useState(dayjs());
@@ -31,44 +39,6 @@ export default function TaskDialog(props) {
             setDueDate(dayjs());
         }
     }, [props.isEdit])
-
-    const handleEdit = () => {
-        axios.put(`https://task-mgmt.azurewebsites.net/Task/${props.id}?owner_id=abdc`, {
-            id: props.id,
-            title: title,
-            description: description,
-            dueDate: dueDate,
-            isCompleted: props.completed,
-            owner_id: "abdc"
-        })
-            .then((response) => {
-                console.log(response);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-
-        props.handleClose();
-    }
-
-    const handleSubmit = () => {
-        axios.post(`https://task-mgmt.azurewebsites.net/Task/?owner_id=abdc`, {
-            id: 0,
-            title: title,
-            description: description,
-            dueDate: dueDate,
-            isCompleted: false,
-            owner_id: "abdc"
-        })
-            .then((response) => {
-                console.log(response);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-
-        props.handleClose();
-    }
 
     return (
         <Dialog open={props.open} onClose={props.handleClose}>
@@ -107,8 +77,40 @@ export default function TaskDialog(props) {
             </DialogContent>
             <DialogActions>
                 <Button onClick={props.handleClose}>Cancel</Button>
-                <Button onClick={props.isEdit ? handleEdit : handleSubmit}>{props.isEdit ? "Change" : "Add Task"}</Button>
+                <Button onClick={
+                    props.isEdit ?
+                        () => {
+                            putData(
+                                props.id,
+                                {
+                                    id: props.id,
+                                    title: title,
+                                    description: description,
+                                    dueDate: dueDate,
+                                    isCompleted: props.completed,
+                                    owner_id: "abdc"
+                                }
+                            )
+
+                            props.handleClose()
+                        }
+                        :
+                        () => {
+                            postData(
+                                {
+                                    id: 0,
+                                    title: title,
+                                    description: description,
+                                    dueDate: dueDate,
+                                    isCompleted: false,
+                                    owner_id: "abdc"
+                                },
+                            )
+
+                            props.handleClose()
+
+                        }}>{props.isEdit ? "Change" : "Add Task"}</Button>
             </DialogActions>
-        </Dialog>
+        </Dialog >
     )
 }
