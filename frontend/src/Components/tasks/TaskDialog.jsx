@@ -32,10 +32,6 @@ export default function TaskDialog(props) {
             setTitle(props.title);
             setDescription(props.description);
             setDueDate(dayjs(props.dueDate));
-        } else {
-            setTitle("");
-            setDescription("");
-            setDueDate(dayjs());
         }
     }, [props.isEdit])
 
@@ -107,6 +103,9 @@ export default function TaskDialog(props) {
                             )
 
                             props.handleClose()
+                            setTitle("");
+                            setDescription("");
+                            setDueDate(dayjs());
 
                         }}>{props.isEdit ? "Change" : "Add Task"}</Button>
             </DialogActions>
