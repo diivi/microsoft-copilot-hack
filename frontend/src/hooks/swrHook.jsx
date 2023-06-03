@@ -1,26 +1,26 @@
 import useSWR, { mutate } from "swr";
 import axios from "axios";
 
-const useData = (url, headers = {}) => {
+const useData = (url, queryParams = {}, headers = {}) => {
   const { data, error } = useSWR(url, async () => {
-    const response = await axios.get(url, { headers });
+    const response = await axios.get(url, { params: queryParams }, { headers });
     return response.data;
   });
 
   const postData = async (newData) => {
-    await axios.post(url, newData, { headers });
+    await axios.post(url, newData, { params: queryParams }, { headers });
     mutate(url);
   };
 
   const putData = async (id, updatedData) => {
     const putUrl = `${url}/${id}`;
-    await axios.put(putUrl, updatedData, { headers });
+    await axios.put(putUrl, updatedData, { params: queryParams }, { headers });
     mutate(url);
   };
 
   const deleteData = async (id) => {
     const deleteUrl = `${url}/${id}`;
-    await axios.delete(deleteUrl, { headers });
+    await axios.delete(deleteUrl, { params: queryParams }, { headers });
     mutate(url);
   };
 

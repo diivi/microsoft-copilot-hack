@@ -18,39 +18,21 @@ import TaskDialog from "./TaskDialog";
 
 import { useTheme } from "@mui/material";
 
+import useData from "../../hooks/swrHook";
+
 export default function TaskCard(props) {
+
+    const { deleteData, putData } = useData(
+        "https://task-mgmt.azurewebsites.net/Task",
+        {
+            owner_id: "abdc"
+        }
+    );
     const theme = useTheme();
 
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-
-    const handleComplete = () => {
-        axios.put(`https://task-mgmt.azurewebsites.net/Task/${props.id}?owner_id=abdc`, {
-            id: props.id,
-            title: props.title,
-            description: props.description,
-            dueDate: props.dueDate,
-            isCompleted: !props.completed,
-            owner_id: "abdc"
-        })
-            .then((response) => {
-                console.log(response);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-    }
-
-    const handleDelete = () => {
-        axios.delete(`https://task-mgmt.azurewebsites.net/Task/${props.id}?owner_id=abdc`)
-            .then((response) => {
-                console.log(response);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-    }
 
     return (
         <Card
@@ -101,7 +83,11 @@ export default function TaskCard(props) {
                         spacing={1}
                     >
                         <IconButton
-                            onClick={props.completed ? handleDelete : handleOpen}
+                            onClick={props.completed ? () => {
+                                deleteData(
+                                    props.id
+                                )
+                            } : handleOpen}
                             size="small"
                             sx={{
                                 "&:focus": {
@@ -118,7 +104,19 @@ export default function TaskCard(props) {
                         </IconButton>
 
                         <IconButton
-                            onClick={handleComplete}
+                            onClick={() => {
+                                putData(
+                                    props.id,
+                                    {
+                                        id: props.id,
+                                        title: props.title,
+                                        description: props.description,
+                                        dueDate: props.dueDate,
+                                        isCompleted: !props.completed,
+                                        owner_id: "abdc"
+                                    }
+                                )
+                            }}
                             size="small"
                             sx={{
                                 "&:focus": {
