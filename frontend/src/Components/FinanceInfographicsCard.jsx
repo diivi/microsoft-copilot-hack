@@ -2,6 +2,7 @@ import { Card } from "@mui/material";
 import DoughnutInfoCard from "./DoughnutInfoCard";
 import MonthlyLimitsComponent from "./MonthlyLimitsComponent";
 import useData from "../hooks/swrHook";
+import SkeletonLoading from "./ui/SkeletonLoading";
 
 const FinanceInfoCard = () => {
   const { data, isLoading, isError, updateData } = useData(
@@ -16,11 +17,19 @@ const FinanceInfoCard = () => {
   }
   return (
     <Card
-      sx={{ bgcolor: "#EEEEE9", borderRadius: "10px" }}
+      sx={{ borderRadius: "10px" }}
       className=" flex flex-col mx-5 my-2 items-center p-4 pt-8"
     >
-      <DoughnutInfoCard />
-      <MonthlyLimitsComponent tagsData={data.tags} />
+      {isLoading ? (
+        <SkeletonLoading />
+      ) : data ? (
+        <>
+          <DoughnutInfoCard tagsData={data.tags} />
+          <MonthlyLimitsComponent tagsData={data.tags} />
+        </>
+      ) : (
+        <h1>Error</h1>
+      )}
     </Card>
   );
 };

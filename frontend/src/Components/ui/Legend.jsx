@@ -6,8 +6,10 @@ const Legend = ({ label }) => {
   return (
     <Box className="flex space-between items-center gap-2 min-w-[100px] ">
       <Box
-        color="primary"
-        className={`h-4 w-4 bg-[${theme.palette.primary.main}]`}
+        sx={{
+          bgcolor: theme.palette.secondary.main,
+        }}
+        className={`h-4 w-4`}
       />
       <Typography variant="subtitle2" fontWeight={"bold"}>
         {label}

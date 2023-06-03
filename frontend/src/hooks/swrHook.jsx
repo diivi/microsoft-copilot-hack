@@ -7,8 +7,20 @@ const useData = (url, headers = {}) => {
     return response.data;
   });
 
-  const updateData = async (newData) => {
+  const postData = async (newData) => {
     await axios.post(url, newData, { headers });
+    mutate(url);
+  };
+
+  const putData = async (id, updatedData) => {
+    const putUrl = `${url}/${id}`;
+    await axios.put(putUrl, updatedData, { headers });
+    mutate(url);
+  };
+
+  const deleteData = async (id) => {
+    const deleteUrl = `${url}/${id}`;
+    await axios.delete(deleteUrl, { headers });
     mutate(url);
   };
 
@@ -16,7 +28,9 @@ const useData = (url, headers = {}) => {
     data,
     isLoading: !error && !data,
     isError: error,
-    updateData,
+    postData,
+    putData,
+    deleteData,
   };
 };
 

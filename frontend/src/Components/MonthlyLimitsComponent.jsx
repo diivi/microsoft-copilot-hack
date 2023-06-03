@@ -28,25 +28,6 @@ const MonthlyLimitsComponent = ({ tagsData }) => {
               </Grid>
             );
           })}
-
-          {/* <Grid item xs={6}>
-            <ProgressBar
-              progress={60}
-              height={4}
-              variant="limit"
-              total={120}
-              label="EMIs"
-            />
-          </Grid>
-          <Grid item xs={6}>
-            <ProgressBar
-              progress={60}
-              height={4}
-              variant="limit"
-              total={120}
-              label="EMIs"
-            />
-          </Grid> */}
         </Grid>
       </Box>
     </Card>
