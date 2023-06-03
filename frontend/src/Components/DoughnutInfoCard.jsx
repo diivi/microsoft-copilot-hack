@@ -5,6 +5,17 @@ import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 
 const DoughnutInfoCard = ({ tagsData }) => {
+  const bgColors = [
+    "rgba(202, 165, 219, 1)",
+    "rgba(0, 40, 90, 1)",
+    "rgba(217, 217, 217, 1)",
+    "rgba(188, 219, 165, 1)",
+  ];
+
+  const getColor = (index) => {
+    const colorIndex = index % bgColors.length;
+    return bgColors[colorIndex];
+  };
   const [sum, setSum] = useState(0);
 
   useEffect(() => {
@@ -25,11 +36,11 @@ const DoughnutInfoCard = ({ tagsData }) => {
         <Typography variant="h5" fontWeight={"semi-bold"}>
           This Month: <span className="font-bold">${sum}</span>
         </Typography>
-        <Grid container columns={{ xs: 4, sm: 8, md: 12 }} spacing={2}>
-          {tagsData.map((tag) => {
+        <Grid container columns={{ xs: 4, sm: 4, md: 8 }} spacing={2}>
+          {tagsData.map((tag, index) => {
             return (
               <Grid key={tag.id} item xs={12} sm={6} md={4}>
-                <Legend label={tag.name} />
+                <Legend label={tag.name} color={getColor(index)} />
               </Grid>
             );
           })}

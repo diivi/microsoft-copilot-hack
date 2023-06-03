@@ -1,56 +1,45 @@
-import React from 'react'
-import food from '../assets/food.png'
-import trv from '../assets/trv.png'
-import emi from '../assets/emi.png'
-import ent from '../assets/ent.png'
-import {Link} from 'react-router-dom'
+import { Card } from "@mui/material";
+import useData from "../hooks/swrHook";
+import DoughnutInfoCard from "./DoughnutInfoCard";
+import TransactionsStack from "./TransactionsStack";
 const PersonalFin = () => {
-  return (
-    <Link to='/finance'>
-    <div className="bg-white rounded-lg m-8 p-4 hover:scale-105 hover:bg-blue-500 hover:text-white transition duration-300 cursor-pointer">
-        
-    <h2 className="text-xl text-center mb-4 font-mono">Personal Finances</h2>
-    <div className="flex">
-      <div className="w-1/3">
-        <img src="path" alt="Finances" />
-      </div>
-      <div className="w-1/3 flex flex-col">
-        <div className="flex flex-col">
-            <div className="flex mb-5">
-            <img className='object-cover mr-2' src={food} alt="" />
-            <h3 className="text-base font-mono">Food</h3>
-            </div>
-            <div className="flex">
-            <img className='object-cover mr-2' src={ent} alt="" />
-            <h3 className="text-base font-mono">Entertainment</h3>
-            </div>
-        </div>
-      </div>
-      <div className="w-1/3 flex flex-col">
-        <div className="flex flex-col">
-        <div className="flex mb-5">
-            <img className='object-cover mr-2' src={trv} alt="" />
-            <h3 className="text-base font-mono">Travel</h3>
-            </div>
-            <div className="flex">
-            <img className='object-cover mr-2' src={emi} alt="" />
-            <h3 className="text-base font-mono">EMIs</h3>
-            </div>
-        </div>
-      </div>
-    </div>
-    <h2 className="text-base my-4 font-mono">Transactions</h2>
-    <div className="flex flex-col justify-center items-center">
-      <div className="bg-zinc-300 rounded-lg w-11/12 h-1/4 p-4 mb-4"></div>
-      <div className="bg-zinc-300 rounded-lg w-11/12 h-1/4 p-4 mb-4"></div>
-      <div className="bg-zinc-300 rounded-lg w-11/12 h-1/4 p-4 mb-4"></div>
-    </div>
-    <div className='flex justify-end'>
-      <button className="bg-boxHead text-mainGray px-20 py-3 rounded-2xl">Add</button>
-    </div>
-  </div>
-  </Link>
-  )
-}
+  const { data, isLoading, isError, updateData } = useData(
+    "http://localhost:8000/getusertags/",
+    {},
+    {
+      "Content-Type": "application/json",
+      userId: 123456,
+    }
+  );
 
-export default PersonalFin
+  const {
+    data: cardData,
+    isLoading: cardLoading,
+    postData,
+  } = useData(
+    "http://localhost:8000/getusercards/",
+    {},
+    {
+      "Content-Type": "application/json",
+      userId: 123456,
+    }
+  );
+
+  if (!isLoading) {
+    console.log(data);
+  }
+
+  return (
+    <Card
+      sx={{ borderRadius: "10px" }}
+      className="flex flex-col mx-5 my-2 items-center p-4 pt-8"
+    >
+      {data ? <DoughnutInfoCard tagsData={data.tags} /> : null}
+      {cardData ? (
+        <TransactionsStack cardsData={cardData.cards} postData={postData} />
+      ) : null}
+    </Card>
+  );
+};
+
+export default PersonalFin;

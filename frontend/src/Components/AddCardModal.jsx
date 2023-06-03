@@ -4,10 +4,16 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { useForm } from "react-hook-form";
-import { FormControl, TextField, useTheme } from "@mui/material";
+import {
+  CircularProgress,
+  FormControl,
+  TextField,
+  useTheme,
+} from "@mui/material";
 
 // eslint-disable-next-line react/prop-types
 const AddCardModal = ({ postData }) => {
+  const [loading, setLoading] = React.useState(false);
   const theme = useTheme();
   const style = {
     position: "absolute",
@@ -32,9 +38,17 @@ const AddCardModal = ({ postData }) => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
+    setLoading(true);
 
-    await postData("http://localhost:8000/addcard/", data);
+    try {
+      console.log(data);
+      await postData("http://localhost:8000/addcard/", data);
+      handleClose();
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -78,7 +92,7 @@ const AddCardModal = ({ postData }) => {
                   error={errors.bank}
                   id="bank"
                   label="Bank Name"
-                  defaultValue="Bank Name"
+                  defaultValue=""
                   helperText="Enter a valid input"
                   {...register("bank", {
                     required: true,
@@ -123,7 +137,11 @@ const AddCardModal = ({ postData }) => {
                 />
               </FormControl>
               <Button type="submit" variant="contained">
-                Create
+                {loading ? (
+                  <CircularProgress sx={{ color: "white" }} size={24} />
+                ) : (
+                  "Create"
+                )}
               </Button>
             </form>
           </Box>

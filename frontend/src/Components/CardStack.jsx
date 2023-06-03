@@ -6,13 +6,13 @@ const CardStack = ({ cardData, postData }) => {
   return (
     <Card
       sx={{ borderRadius: "10px" }}
-      className="bg-red-300 flex flex-col mx-5 my-2 items-center p-4 pt-8"
+      className=" bg-red-300 flex flex-col my-2 items-center p-2 pt-8 "
     >
       <Typography
         mb={2}
         variant="h5"
         fontWeight={"bold"}
-        className="self-start"
+        className="self-start w-full px-7"
       >
         Your Cards
       </Typography>

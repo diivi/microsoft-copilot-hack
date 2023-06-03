@@ -15,6 +15,7 @@ import {
   useTheme,
   Chip,
   OutlinedInput,
+  CircularProgress,
 } from "@mui/material";
 
 const AddTransactionModal = ({ postData, cardsData }) => {
@@ -55,6 +56,8 @@ const AddTransactionModal = ({ postData, cardsData }) => {
   ];
 
   const [open, setOpen] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
+  const [selectedSource, setSelectedSource] = React.useState("");
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -68,11 +71,17 @@ const AddTransactionModal = ({ postData, cardsData }) => {
 
   const onSubmit = async (data) => {
     console.log(data);
-
-    await postData("http://localhost:8000/addtransaction/", data);
-    mutate("http://localhost:8000/getusercards/");
-    mutate("http://localhost:8000/getusertags/");
-    handleClose();
+    setLoading(true);
+    try {
+      await postData("http://localhost:8000/addtransaction/", data);
+      mutate("http://localhost:8000/getusercards/");
+      mutate("http://localhost:8000/getusertags/");
+      handleClose();
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -98,7 +107,7 @@ const AddTransactionModal = ({ postData, cardsData }) => {
           <Box>
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="flex flex-col w-full gap-2"
+              className="flex flex-col w-full gap-3"
             >
               <FormControl>
                 <TextField
@@ -116,8 +125,23 @@ const AddTransactionModal = ({ postData, cardsData }) => {
                     style: { color: theme.palette.secondary.main }, // Change the color of the label
                   }}
                 />
+                <FormControl>
+                  <TextField
+                    error={errors.Label}
+                    id="label"
+                    label="Label"
+                    defaultValue=""
+                    helperText="Enter a valid input"
+                    {...register("label", {
+                      required: true,
+                    })}
+                    InputLabelProps={{
+                      style: { color: theme.palette.secondary.main }, // Change the color of the label
+                    }}
+                  />
+                </FormControl>
 
-                <FormControl error={!watch("tags")?.length}>
+                <FormControl>
                   <InputLabel id="chip-label">Tags</InputLabel>
                   <Controller
                     control={control}
@@ -125,10 +149,12 @@ const AddTransactionModal = ({ postData, cardsData }) => {
                     render={({ field }) => (
                       <Select
                         {...field}
+                        sx={{ backgroundColor: theme.palette.primary.main }}
                         labelId="chip-label"
                         helperText="Enter a valid input"
                         id="chip-select"
                         multiple
+                        label="Tags"
                         input={<OutlinedInput id="select-chip" />}
                         renderValue={(selected) => (
                           <Box
@@ -148,23 +174,28 @@ const AddTransactionModal = ({ postData, cardsData }) => {
                         ))}
                       </Select>
                     )}
-                    rules={{ required: true }} // Add validation rules for the multiselect
-                    defaultValue={[]} // Set the initial value as an empty array
+                    rules={{ required: true }}
+                    defaultValue={[]}
                   />
                 </FormControl>
               </FormControl>
               <FormControl>
-                <InputLabel id="demo-simple-select-label">Source</InputLabel>
+                <InputLabel id="source-label">Source</InputLabel>
                 <Select
-                  labelId="demo-simple-select-label"
+                  sx={{ backgroundColor: theme.palette.primary.main }}
+                  labelId="source-label"
                   error={errors.source}
                   id="demo-simple-select"
                   label="Source"
+                  onChange={(e) => {
+                    setSelectedSource(e.target.value);
+                    console.log(e.target.value);
+                  }}
                   {...register("source", {
                     required: true,
                   })}
                   InputLabelProps={{
-                    style: { color: theme.palette.secondary.main }, // Change the color of the label
+                    style: { color: theme.palette.primary.main },
                   }}
                   control={control} // Provide the control object from react-hook-form
                 >
@@ -175,6 +206,7 @@ const AddTransactionModal = ({ postData, cardsData }) => {
               <FormControl>
                 <InputLabel id="demo-simple-select-label">Type</InputLabel>
                 <Select
+                  sx={{ backgroundColor: theme.palette.primary.main }}
                   labelId="demo-simple-select-label"
                   error={errors.type}
                   id="demo-simple-select"
@@ -194,12 +226,13 @@ const AddTransactionModal = ({ postData, cardsData }) => {
               <FormControl>
                 <InputLabel id="card-label">Card</InputLabel>
                 <Select
+                  sx={{ backgroundColor: theme.palette.primary.main }}
                   labelId="card-label"
                   error={errors.card}
                   id="card"
                   label="Card"
                   {...register("cardId", {
-                    required: true,
+                    required: selectedSource === "card",
                   })}
                   InputLabelProps={{
                     style: { color: theme.palette.secondary.main }, // Change the color of the label
@@ -214,24 +247,12 @@ const AddTransactionModal = ({ postData, cardsData }) => {
                 </Select>
               </FormControl>
 
-              <FormControl>
-                <TextField
-                  error={errors.Label}
-                  id="label"
-                  label="Label"
-                  defaultValue=""
-                  helperText="Enter a valid input"
-                  {...register("label", {
-                    required: true,
-                  })}
-                  InputLabelProps={{
-                    style: { color: theme.palette.secondary.main }, // Change the color of the label
-                  }}
-                />
-              </FormControl>
-
               <Button type="submit" variant="contained">
-                Create
+                {loading ? (
+                  <CircularProgress sx={{ color: "white" }} size={24} />
+                ) : (
+                  "Create"
+                )}
               </Button>
             </form>
           </Box>

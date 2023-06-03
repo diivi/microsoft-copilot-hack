@@ -1,13 +1,12 @@
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import PropTypes from "prop-types";
 
-const Legend = ({ label }) => {
-  const theme = useTheme();
+const Legend = ({ label, color }) => {
   return (
     <Box className="flex space-between items-center gap-2 min-w-[100px] ">
       <Box
         sx={{
-          bgcolor: theme.palette.secondary.main,
+          bgcolor: color,
         }}
         className={`h-4 w-4`}
       />
@@ -20,6 +19,7 @@ const Legend = ({ label }) => {
 
 Legend.propTypes = {
   label: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
 };
 
 export default Legend;

@@ -1,19 +1,14 @@
-import { Box, Paper, useTheme } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import useData from "../hooks/swrHook";
 import FinanceInfoCard from "../Components/FinanceInfographicsCard";
-import CreditCard from "../Components/ui/CreditCard";
-import ProgressBar from "../Components/ui/ProgressBar";
-import AddCardModal from "../Components/AddCardModal";
 import SkeletonLoading from "../Components/ui/SkeletonLoading";
-import AddTransactionModal from "../Components/AddTransactionModal";
-import TransactionsList from "../Components/TransactionsList";
 import { useState, useEffect } from "react";
 import CardStack from "../Components/CardStack";
 import TransactionsStack from "../Components/TransactionsStack";
 
 const FinancePage = () => {
   const [cards, setCards] = useState([]);
-  const { data, isLoading, isError, postData } = useData(
+  const { data, isLoading, postData } = useData(
     "http://localhost:8000/getusercards/",
     {},
     {
@@ -37,7 +32,10 @@ const FinancePage = () => {
         <Box className="flex-[1_1_10%] h-full flex flex-col">
           {/* finance graph content */}
 
-          <Box className="" sx={{ bgcolor: theme.palette.background.default }}>
+          <Box
+            className="flex-1"
+            sx={{ bgcolor: theme.palette.background.default }}
+          >
             <FinanceInfoCard />
           </Box>
           {/* transactions history*/}
