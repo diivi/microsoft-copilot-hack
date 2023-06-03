@@ -29,7 +29,7 @@ const createTransaction = async (req: Request, res: Response) => {
                 },
                 create: {
                   name: tag,
-                  cap: 0,
+                  cap: 2000,
                   userId,
                 },
               },
@@ -43,9 +43,24 @@ const createTransaction = async (req: Request, res: Response) => {
             tags: true,
           },
         },
+        card: true, // Include the associated card in the transaction query
       },
     });
-    console.log(transaction);
+
+    if (transaction.card) {
+      // Update the currentSpent property of the associated card
+      const updatedCard = await prisma.card.update({
+        where: {
+          id: transaction.card.id,
+        },
+        data: {
+          currentSpent: transaction.card.currentSpent + transaction.amount,
+        },
+      });
+
+      console.log(updatedCard);
+    }
+
     res.json({ transaction });
 
     // Handle successful transaction creation
