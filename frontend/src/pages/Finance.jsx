@@ -7,8 +7,10 @@ import AddCardModal from "../Components/AddCardModal";
 import SkeletonLoading from "../Components/ui/SkeletonLoading";
 import AddTransactionModal from "../Components/AddTransactionModal";
 import TransactionsList from "../Components/TransactionsList";
+import { useState, useEffect } from "react";
 
 const FinancePage = () => {
+  const [cards, setCards] = useState([]);
   const { data, isLoading, isError, postData } = useData(
     "http://localhost:8000/getusercards/",
     {},
@@ -17,7 +19,14 @@ const FinancePage = () => {
       userId: 123456,
     }
   );
-  console.log(data);
+
+  useEffect(() => {
+    if (data) {
+      setCards(data.cards);
+      console.log(data)
+    }
+  }, [data]);
+
   const theme = useTheme();
   return (
     <Box sx={{ bgcolor: theme.palette.background.default }} className="flex ">
@@ -50,14 +59,14 @@ const FinancePage = () => {
             data.cards.map((card) => {
               return (
                 <>
-                  <CreditCard />
-                  <ProgressBar
+                  <CreditCard card={card} />
+                  {/* <ProgressBar
                     progress={60}
                     height={4}
                     variant="card"
                     total={120}
                     label=""
-                  />
+                  /> */}
                 </>
               );
             })
