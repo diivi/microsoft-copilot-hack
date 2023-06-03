@@ -6,7 +6,7 @@ const SidebarLayout = ({ children }) => {
   return (
     <Box className="flex w-full">
       <Side />
-      <div className="flex-1">{children}</div>
+      <div className="flex-1 min-h-screen h-full ">{children}</div>
     </Box>
   );
 };

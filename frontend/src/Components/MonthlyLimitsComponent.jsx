@@ -1,9 +1,13 @@
 import { Box, Card, Grid, Typography } from "@mui/material";
+import PropTypes from "prop-types";
 import ProgressBar from "./ui/ProgressBar";
 
-const MonthlyLimitsComponent = () => {
+const MonthlyLimitsComponent = ({ tagsData }) => {
   return (
-    <Card sx={{ bgcolor: "#BCDBA5" }} className="m-5 mb-0 w-full p-4">
+    <Card
+      sx={{ bgcolor: "#BCDBA5", borderRadius: "10px" }}
+      className="m-5 mb-0 w-full p-4"
+    >
       <Box className="flex justify-start mb-4">
         <Typography variant="h6" fontWeight="bold">
           Monthly Limits
@@ -11,37 +15,27 @@ const MonthlyLimitsComponent = () => {
       </Box>
       <Box>
         <Grid container spacing={4}>
-          <Grid item xs={6}>
-            <ProgressBar
-              progress={60}
-              height={4}
-              variant="limit"
-              total={120}
-              label="EMIs"
-            />
-          </Grid>
-          <Grid item xs={6}>
-            <ProgressBar
-              progress={60}
-              height={4}
-              variant="limit"
-              total={120}
-              label="EMIs"
-            />
-          </Grid>
-          <Grid item xs={6}>
-            <ProgressBar
-              progress={60}
-              height={4}
-              variant="limit"
-              total={120}
-              label="EMIs"
-            />
-          </Grid>
+          {tagsData.map((tag) => {
+            return (
+              <Grid key={tag.id} item xs={6}>
+                <ProgressBar
+                  progress={tag.totalAmount}
+                  height={4}
+                  variant="limit"
+                  total={tag.cap}
+                  label={tag.name}
+                />
+              </Grid>
+            );
+          })}
         </Grid>
       </Box>
     </Card>
   );
+};
+
+MonthlyLimitsComponent.propTypes = {
+  tagsData: PropTypes.array.isRequired,
 };
 
 export default MonthlyLimitsComponent;

@@ -5,7 +5,7 @@ import Url from "../Components/Url";
 
 const Page1 = () => {
   return (
-    <div className="bg-mainGray min-h-screen h-full text-black flex">
+    <div className="bg-mainGray  text-black flex">
       <div className="w-3/5 flex flex-col">
         <Tasks />
         <PersonalFin />

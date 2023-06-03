@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 
 const handleUser = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const { userId } = req.body;
+    const userId = req.header("userId");
     console.log(userId);
 
     const user = await prisma.user.findUnique({

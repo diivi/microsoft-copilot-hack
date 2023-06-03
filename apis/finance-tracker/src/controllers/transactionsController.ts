@@ -30,6 +30,7 @@ const createTransaction = async (req: Request, res: Response) => {
                 create: {
                   name: tag,
                   cap: 0,
+                  userId,
                 },
               },
             },
