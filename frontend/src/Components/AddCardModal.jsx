@@ -3,6 +3,8 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import { useForm } from "react-hook-form";
+import { FormControl, TextField } from "@mui/material";
 
 const AddCardModal = () => {
   const style = {
@@ -21,6 +23,16 @@ const AddCardModal = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data.imageName);
+  };
+
   return (
     <div>
       <Button onClick={handleOpen}>Add Card</Button>
@@ -35,9 +47,48 @@ const AddCardModal = () => {
             Add New Card
           </Typography>
           <Box className="flex flex-col items-start">
-            {/* <form onSubmuit={handleSubmit(onSubmit)}> */}
-
-            {/* </form> */}
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <FormControl>
+                <TextField
+                  required
+                  error={errors.cardLabel}
+                  id="outlined-required"
+                  label="Card Label"
+                  defaultValue=""
+                  helperText="Enter a valid input"
+                  {...register("cardLabel", {
+                    required: true,
+                  })}
+                />
+              </FormControl>
+              <FormControl>
+                <TextField
+                  required
+                  error={errors.bank}
+                  id="outlined-required"
+                  label="Bank Name"
+                  defaultValue="Bank Name"
+                  helperText="Enter a valid input"
+                  {...register("cardLabel", {
+                    required: true,
+                  })}
+                />
+              </FormControl>
+              <FormControl>
+                <TextField
+                  required
+                  type="number"
+                  error={errors.cap}
+                  id="cap-input"
+                  label="Card Cap"
+                  defaultValue="0"
+                  helperText="Enter a valid input"
+                  {...register("cap", {
+                    required: true,
+                  })}
+                />
+              </FormControl>
+            </form>
           </Box>
         </Box>
       </Modal>
