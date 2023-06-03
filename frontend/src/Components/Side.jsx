@@ -2,22 +2,40 @@
 
 // Path: frontend/src/Components/side.js
 import {Link} from 'react-router-dom'
+import dot from '../assets/dot.png'
 function Side() {
   return (
     <>
-      <div className="bg-sideBg min-h-full  w-1/5 pl-4">
-        <Link to='/'>
-        <div className="text-white text-left text-2xl font-bold py-10 border-b-2">
+      <div className="bg-sideBg text-mainGray min-h-full  w-1/5 pl-4">
+        <div className="text-left text-2xl font-bold py-10 border-b-2">
           Swift.
         </div>
-        </Link>
-        <div className="text-white text-left text-xl font-bold py-4">
+        <Link to='/'>
+        <div className="flex gap-2 items-center py-4">
+          <img className=' w-8 h-8' src={dot} alt="" />
+          <h3 className='text-xl font-bold'>
           Dashboard
-        </div>
-        <div className="text-white text-left text-xl font-bold py-4">Tasks</div>
-        <div className="text-white text-left text-xl font-bold py-4">
+          </h3>
+          </div>
+        </Link>
+        <Link to='/tasks'>
+        <div className="flex gap-2 items-center py-4">
+          <img className=' w-8 h-8' src={dot} alt="" />
+          <h3 className='text-xl font-bold'>
+          Tasks
+          </h3>
+          </div>
+        </Link>
+        <Link to='/finance'>
+        <div className="flex gap-2 items-center py-4">
+          <img className=' w-8 h-8' src={dot} alt="" />
+          <h3 className='text-xl font-bold'>
           Finances
-        </div>
+          </h3>
+          </div>
+        </Link>
+        
+        
       </div>
     </>
   );

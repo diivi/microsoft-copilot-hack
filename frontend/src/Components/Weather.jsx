@@ -86,24 +86,41 @@ const Weather = () => {
                 <h3 className='text-2xl'>Wind Speed</h3>
             </div>
         </div>
-        <div className="flex gap-3">
-      {weatherData && (
-        <>
-          {filteredData.map((day) => (
-            <div key={day.dt} className="flex flex-col items-center text-boxHead bg-boxGreen
-            rounded-full p-3 mb-4">
-              <img src={`https://openweathermap.org/img/wn/${day.weather[0].icon}.png`} alt="Weather Icon" className="w-10 h-10" />
-              <div className="flex flex-col ml-4">
-                <span className="font-bold text-lg">{Math.round(day.main.temp_max - 273.15)}°C</span>
-                <span>{Math.round(day.main.temp_min - 273.15)}°C</span>
+        <div className="flex justify-between gap-4 mx-4">
+        {weatherData && (
+          <>
+            {filteredData.map((day) => (
+              <div
+                key={day.dt}
+                className="flex flex-col items-center justify-around text-boxHead bg-mainGray rounded-full w-36 p-4 mb-4"
+              >
+                <img
+                  src={`https://openweathermap.org/img/wn/${day.weather[0].icon}.png`}
+                  alt="Weather Icon"
+                  className="w-10 h-10"
+                />
+                <div className="flex flex-col items-center justify-evenly">
+                  <h3>
+                    <span className="text-lg font-bold">
+                      {Math.round(day.main.temp_max - 273.15)}°C
+                    </span>
+                    <br />
+                    <span className="text-sm">
+                      /{Math.round(day.main.temp_min - 273.15)}°C
+                    </span>
+                  </h3>
+                </div>
+                <span>
+                  {new Date(day.dt_txt).getDate()},{' '}
+                  {new Date(day.dt_txt).toLocaleString('default', {
+                    month: 'short',
+                  })}
+                </span>
               </div>
-              <span className="ml-auto">{new Date(day.dt_txt).getDate()}, {new Date(day.dt_txt).toLocaleString('default', { month: 'short' })}</span>
-
-            </div>
-          ))}
-        </>
-      )}
-    </div>
+            ))}
+          </>
+        )}
+      </div>
     </div>
   );
 };

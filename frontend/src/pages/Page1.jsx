@@ -3,6 +3,7 @@ import PersonalFin from "../Components/PersonalFin";
 import Weather from "../Components/Weather";
 import Url from "../Components/Url";
 
+
 const Page1 = () => {
   return (
     <div className="bg-mainGray  text-black flex">

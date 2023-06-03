@@ -12,14 +12,12 @@ const useData = (url, queryParams = {}, headers = {}) => {
     mutate(url);
   };
 
-  const putData = async (id, updatedData) => {
-    const putUrl = `${url}/${id}`;
+  const putData = async (putUrl, updatedData) => {
     await axios.put(putUrl, updatedData, { params: queryParams, headers });
     mutate(url);
   };
 
-  const deleteData = async (id) => {
-    const deleteUrl = `${url}/${id}`;
+  const deleteData = async (deleteUrl) => {
     await axios.delete(deleteUrl, { params: queryParams, headers });
     mutate(url);
   };

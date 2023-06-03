@@ -83,6 +83,7 @@ export default function TaskCard(props) {
                         <IconButton
                             onClick={props.completed ? () => {
                                 deleteData(
+                                    `https://task-mgmt.azurewebsites.net/Task/${props.id}`,
                                     props.id
                                 )
                             } : handleOpen}
@@ -104,7 +105,7 @@ export default function TaskCard(props) {
                         <IconButton
                             onClick={() => {
                                 putData(
-                                    props.id,
+                                    `https://task-mgmt.azurewebsites.net/Task/${props.id}`,
                                     {
                                         id: props.id,
                                         title: props.title,
