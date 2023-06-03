@@ -70,7 +70,7 @@ export default function TaskProgressTile() {
                     </Stack>
                     <LinearProgress
                         variant="determinate"
-                        value={50}
+                        value={data?.filter(task => task.isCompleted).length / data?.length * 100}
                         color="secondary"
                     />
                 </CardContent>
