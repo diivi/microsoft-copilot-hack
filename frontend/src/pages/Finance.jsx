@@ -20,12 +20,12 @@ const FinancePage = () => {
     }
   );
 
-  useEffect(() => {
-    if (data) {
-      setCards(data.cards);
-      console.log(data)
-    }
-  }, [data]);
+  // useEffect(() => {
+  //   if (data) {
+  //     setCards(data.cards);
+  //     console.log(data)
+  //   }
+  // }, [data]);
 
   const theme = useTheme();
   return (
@@ -42,7 +42,7 @@ const FinancePage = () => {
             <FinanceInfoCard />
           </Paper>
           {/* transactions history*/}
-          <Paper className="flex-1">
+          <Paper className="flex-1 "sx={{ bgcolor: theme.palette.background.default }}>
             Transactions
             <AddTransactionModal />
             <TransactionsList variant="page" />
