@@ -12,7 +12,7 @@ export default function TaskTile(props) {
         <Card sx={{
             display: 'flex',
             borderRadius: "16px",
-            height: "15rem"
+            height: "100%"
         }}
         >
             <CardActionArea

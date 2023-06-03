@@ -24,7 +24,7 @@ export default function TaskProgressTile() {
                 display: "flex",
                 borderRadius: "16px",
                 backgroundColor: "#BCDBA5",
-                height: "15rem",
+                minHeight: "10rem",
             }}
         >
             <CardActionArea
