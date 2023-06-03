@@ -7,8 +7,8 @@ const useData = (url, queryParams = {}, headers = {}) => {
     return response.data;
   });
 
-  const postData = async (newData) => {
-    await axios.post(url, newData, { params: queryParams, headers });
+  const postData = async (postUrl, newData) => {
+    await axios.post(postUrl, newData, { params: queryParams, headers });
     mutate(url);
   };
 

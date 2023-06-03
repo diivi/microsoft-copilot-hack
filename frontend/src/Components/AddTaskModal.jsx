@@ -6,8 +6,7 @@ import Modal from "@mui/material/Modal";
 import { useForm } from "react-hook-form";
 import { FormControl, TextField, useTheme } from "@mui/material";
 
-// eslint-disable-next-line react/prop-types
-const AddCardModal = ({ postData }) => {
+const AddTransactionModal = ({ postData }) => {
   const theme = useTheme();
   const style = {
     position: "absolute",
@@ -34,12 +33,12 @@ const AddCardModal = ({ postData }) => {
   const onSubmit = async (data) => {
     console.log(data);
 
-    await postData("http://localhost:8000/addcard/", data);
+    await postData("http://localhost:8000/addtransaction/", data);
   };
 
   return (
     <div>
-      <Button onClick={handleOpen}>Add Card</Button>
+      <Button onClick={handleOpen}>Create Transaction</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -48,7 +47,7 @@ const AddCardModal = ({ postData }) => {
       >
         <Box sx={style}>
           <Typography mb={2} id="modal-modal-title" variant="h6" component="h2">
-            Add New Card
+            Create Transaction
           </Typography>
           <Box>
             <form
@@ -131,4 +130,4 @@ const AddCardModal = ({ postData }) => {
   );
 };
 
-export default AddCardModal;
+export default AddTransactionModal;

@@ -7,6 +7,7 @@ import SkeletonLoading from "./ui/SkeletonLoading";
 const FinanceInfoCard = () => {
   const { data, isLoading, isError, updateData } = useData(
     "http://localhost:8000/getusertags/",
+    {},
     {
       "Content-Type": "application/json",
       userId: 123456,
