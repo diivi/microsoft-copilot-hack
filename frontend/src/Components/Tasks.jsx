@@ -36,7 +36,7 @@ const Tasks = () => {
   const formattedDate = currentDate.toLocaleDateString(undefined, options);
   return (
     <Box>
-      <Box px={4}>
+      <Box>
         <Stack direction="row" spacing={2} alignItems={"center"}>
           <Avatar alt="Aemy Sharp" src="/static/images/avatar/1.jpg" sx={{ width: 94, height: 94 }} />
           <Stack direction="column" spacing={0}>
@@ -67,7 +67,7 @@ const Tasks = () => {
         </Stack>
       </Box>
 
-      <Box padding={"2rem"}>
+      <Box marginTop={"2rem"}>
         {isLoading ? <CircularProgress /> :
           <Grid container spacing={2}>
             <Grid item xs={12} sm={12} md={6}>

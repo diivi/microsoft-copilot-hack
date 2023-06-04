@@ -21,7 +21,7 @@ const FinanceInfoCard = () => {
   return (
     <Card
       sx={{ borderRadius: "10px" }}
-      className="flex flex-col mx-1 xs:mx-5 my-2 items-center p-2 pt-8"
+      className="flex flex-col items-center p-2 pt-8"
     >
       {isLoading ? (
         <SkeletonLoading />

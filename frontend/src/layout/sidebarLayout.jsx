@@ -143,7 +143,7 @@ function ResponsiveDrawer(props) {
           {drawer}
         </Drawer>
       </Box>
-      <Box component="main" className="w-full">
+      <Box component="main" padding={"2rem"} marginTop={"5rem"} width={"100%"}>
         {props.children}
       </Box>
     </Box>

@@ -31,7 +31,7 @@ const FinancePage = () => {
       sx={{ bgcolor: theme.palette.background.default }}
       className="flexw w-full flex-col md:flex-row"
     >
-      <Box className="mt-24 flex flex-col lg:flex-row">
+      <Box className="flex flex-col lg:flex-row">
         {/* First Column */}
         <Box className="flex-[1_1_20%] lg:w-2/3 md:flex md:flex-col">
           {/* finance graph content */}

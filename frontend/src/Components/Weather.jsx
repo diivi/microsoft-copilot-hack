@@ -35,13 +35,13 @@ const Weather = () => {
   const [cityPhoto, setCityPhoto] = useState(null);
   const [imgLoading, setImgLoading] = useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     const fetchCityPhoto = async () => {
       setImgLoading(true);
       try {
         const response = await axios.get(
           `https://api.unsplash.com/search/photos/?query=${city}&per_page=9&client_id=jjek9pjLcNuvzP_mZZp5Q6aHqARElpbHWlKOcOrKBxM`,
-          
+
         );
         console.log(response.data);
         // Update state with the city photo data
@@ -52,18 +52,18 @@ const Weather = () => {
       } catch (error) {
         console.error('Error fetching city photo:', error);
       }
-      finally{
+      finally {
         setImgLoading(false);
       }
     };
     fetchCityPhoto();
-  },[city])
-  
-    
-    let filteredData = [];
-    
-    if (!isLoading && weatherData) {
-      const indices = [5, 13, 21, 29];
+  }, [city])
+
+
+  let filteredData = [];
+
+  if (!isLoading && weatherData) {
+    const indices = [5, 13, 21, 29];
 
     filteredData = indices.map((index) => weatherData.list[index]);
   }
@@ -75,22 +75,22 @@ const Weather = () => {
   };
 
   return (
-    <div className='bg-boxHead font-mono text-mainGray rounded-2xl m-8 p-4'>
+    <div className='bg-boxHead font-mono text-mainGray rounded-2xl p-4'>
       <h2 className='text-2xl text-center m-4 mb-8'>Weather Forecast</h2>
       <div className="flex justify-evenly mb-8 flex-row md2:flex-col md2:items-center md2:gap-4 lg3:flex-row">
-      {imgLoading ? (
-        <div className="w-36 h-36 flex items-center justify-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-gray-900"></div>
-        </div>
-      ) : (
-        cityPhoto && (
-          <img
-            className=' w-2/5 object-cover rounded-lg shadow-lg md2:w-auto lg3:w-2/5'
-            src={cityPhoto.urls.small}
-            alt={cityPhoto.alt_description}
-          />
-        )
-      )}
+        {imgLoading ? (
+          <div className="w-36 h-36 flex items-center justify-center">
+            <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-gray-900"></div>
+          </div>
+        ) : (
+          cityPhoto && (
+            <img
+              className=' w-2/5 object-cover rounded-lg shadow-lg md2:w-auto lg3:w-2/5'
+              src={cityPhoto.urls.small}
+              alt={cityPhoto.alt_description}
+            />
+          )
+        )}
 
         <div className="flex flex-col justify-center items-center gap-3">
 
