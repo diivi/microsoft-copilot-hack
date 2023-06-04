@@ -18,7 +18,7 @@ const Url = () => {
   }
 
   return (
-    <div className='bg-boxGreen rounded-2xl m-8 p-4'>
+    <div className='bg-boxGreen rounded-2xl mt-6 p-4'>
       <h2 className='text-boxHead text-xl text-center mb-4 font-mono'>URL Shortener</h2>
       {/*  
           a white input box for the user to enter a url, full width
