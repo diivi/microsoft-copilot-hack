@@ -3,7 +3,7 @@ import {BiCopy} from 'react-icons/bi'
 
 const Url = () => {
 
-  const [shortenedUrl, setShortenedUrl] = useState('https://this-web.com/')
+  const [shortenedUrl, setShortenedUrl] = useState('http://20.198.105.30:4567/')
   const [url, setUrl] = useState('')
 
   const shortenUrl = (url) => {
@@ -12,7 +12,7 @@ const Url = () => {
     fetch(apiUrl + url)
       .then(response => response.text())
       .then(data =>
-        setShortenedUrl( 'https://this-web.com/'+ data)
+        setShortenedUrl( 'http://20.198.105.30:4567/'+ data)
       )
       .catch(error => console.log(error))
   }
