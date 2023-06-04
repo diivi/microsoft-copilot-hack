@@ -73,9 +73,9 @@ const AddTransactionModal = ({ postData, cardsData }) => {
     console.log(data);
     setLoading(true);
     try {
-      await postData("http://localhost:8000/addtransaction/", data);
-      mutate("http://localhost:8000/getusercards/");
-      mutate("http://localhost:8000/getusertags/");
+      await postData("http://20.198.105.30:8000/addtransaction/", data);
+      mutate("http://20.198.105.30:8000/getusercards/");
+      mutate("http://20.198.105.30:8000/getusertags/");
       handleClose();
     } catch (error) {
       console.error(error);
