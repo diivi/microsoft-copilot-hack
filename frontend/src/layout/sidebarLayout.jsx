@@ -32,7 +32,7 @@ function ResponsiveDrawer(props) {
   const drawer = (
     <div>
       <Toolbar >
-        <Typography variant="h6" noWrap component="div" fontFamily={"Roboto"}>
+        <Typography mt={"3rem"} mb={"1rem"} fontSize={"1.5rem"} variant="h6" noWrap component="div" fontFamily={"Roboto"}>
           Swift.
         </Typography>
       </Toolbar>
@@ -43,7 +43,7 @@ function ResponsiveDrawer(props) {
             <ListItem key={text[0]} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <CircleIcon />
+                  <CircleIcon sx={{ color: "white" }} />
                 </ListItemIcon>
                 <ListItemText primary={text[0]} />
               </ListItemButton>
@@ -75,9 +75,9 @@ function ResponsiveDrawer(props) {
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: 'none' } }}
           >
-            <MenuIcon />
+            <MenuIcon sx={{ color: "white" }} />
           </IconButton>
-          <Typography color={theme.palette.text.secondary} variant="h6" noWrap component="div" fontFamily={"Roboto"}>
+          <Typography width={'100%'} fontSize={"1.5rem"} align='center' color={theme.palette.text.secondary} variant="h6" noWrap component="div" fontFamily={"Roboto"}>
             Swift.
           </Typography>
         </Toolbar>
