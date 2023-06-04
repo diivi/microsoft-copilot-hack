@@ -6,7 +6,7 @@ const CardStack = ({ cardData, postData }) => {
   return (
     <Card
       sx={{ borderRadius: "10px" }}
-      className="  self-center bg-red-300 flex  w-full  flex-col my-2 items-center p-2 mx-auto pt-8"
+      className="  self-center  flex  w-full  flex-col my-2 items-center p-2 mx-auto pt-8 h-full mb-6"
     >
       <Typography
         mb={2}
@@ -17,7 +17,10 @@ const CardStack = ({ cardData, postData }) => {
         Your Cards
       </Typography>
       <AddCardModal cardsData={cardData} postData={postData} />
-      <Box className="w-full">
+      <Box
+        style={{ maxHeight: 800 }}
+        className="w-full overflow-auto flex-1 mt-2"
+      >
         {cardData.map((card) => {
           return (
             <>

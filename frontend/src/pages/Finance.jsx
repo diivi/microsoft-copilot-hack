@@ -43,7 +43,7 @@ const FinancePage = () => {
           </Box>
           {/* transactions history*/}
           <Box
-            className="flex-1"
+            className="flex-1 mt-2"
             sx={{ bgcolor: theme.palette.background.default }}
           >
             {data ? (

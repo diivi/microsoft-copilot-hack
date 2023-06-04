@@ -15,9 +15,12 @@ const TransactionsStack = ({ cardsData }) => {
   return (
     <>
       <Box className="flex flex-col items-center w-full p-2 sm:p-4">
-        <Typography variant="h5" fontWeight={"bold"} className="self-start p-2">
-          Transactions
-        </Typography>
+        <Box className="w-full flex justify-between my-1 px-2">
+          <Typography variant="h5" fontWeight={"bold"} className="self-start">
+            Transactions
+          </Typography>
+          <AddTransactionModal cardsData={cardsData} postData={postData} />
+        </Box>
         <Box
           sx={{
             borderRadius: "10px",
@@ -25,7 +28,7 @@ const TransactionsStack = ({ cardsData }) => {
             overflow: "auto",
           }}
           className="flex flex-col mx-5 my-2 items-center p-2 pt-2 w-full"
-          style={{ maxHeight: 400 }}
+          style={{ maxHeight: 300 }}
         >
           {data && (
             <TransactionsList
@@ -34,9 +37,6 @@ const TransactionsStack = ({ cardsData }) => {
             />
           )}
           {/* )} */}
-        </Box>
-        <Box className="w-full flex justify-end my-1">
-          <AddTransactionModal cardsData={cardsData} postData={postData} />
         </Box>
       </Box>
     </>

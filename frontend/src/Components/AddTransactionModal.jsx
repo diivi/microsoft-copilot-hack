@@ -87,7 +87,7 @@ const AddTransactionModal = ({ postData, cardsData }) => {
   return (
     <div>
       <Button
-        sx={{ borderRadius: 4 }}
+        sx={{ borderRadius: 2 }}
         variant="contained"
         color="secondary"
         onClick={handleOpen}
