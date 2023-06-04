@@ -29,7 +29,7 @@ const FinancePage = () => {
   return (
     <Box
       sx={{ bgcolor: theme.palette.background.default }}
-      className="flexw w-full flex-col md:flex-row"
+      className="flex w-full flex-col md:flex-row"
     >
       <Box className="flex flex-col lg:flex-row">
         {/* First Column */}

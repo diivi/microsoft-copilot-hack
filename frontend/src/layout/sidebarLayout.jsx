@@ -151,7 +151,7 @@ function ResponsiveDrawer(props) {
           {drawer}
         </Drawer>
       </Box>
-      <Box component="main" padding={"2rem"} marginTop={{ sm: "1rem", xs: "5rem" }} width={"100%"}>
+      <Box overflow={"hidden"} component="main" padding={"2rem"} marginTop={{ sm: "1rem", xs: "5rem" }} width={"100%"}>
         {props.children}
       </Box>
     </Box>
