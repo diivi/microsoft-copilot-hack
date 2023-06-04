@@ -10,7 +10,7 @@ import SkeletonLoading2 from "../Components/ui/SkeletonLoading2";
 const FinancePage = () => {
   const [cards, setCards] = useState([]);
   const { data, isLoading, postData } = useData(
-    "http://20.198.105.30:8000/getusercards/",
+    "https://20.198.105.30:8000/getusercards/",
     {},
     {
       "Content-Type": "application/json",

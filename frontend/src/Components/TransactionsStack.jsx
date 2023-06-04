@@ -5,7 +5,7 @@ import AddTransactionModal from "./AddTransactionModal";
 
 const TransactionsStack = ({ cardsData }) => {
   const { data, postData } = useData(
-    "http://20.198.105.30:8000/getusertransactions/",
+    "https://20.198.105.30:8000/getusertransactions/",
     {},
     {
       "Content-Type": "application/json",
