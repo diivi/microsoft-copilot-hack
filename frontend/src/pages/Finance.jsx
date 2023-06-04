@@ -26,12 +26,14 @@ const FinancePage = () => {
 
   const theme = useTheme();
   return (
-    <Box sx={{ bgcolor: theme.palette.background.default }} className="flex ">
-      <Box className="flex mt-[10%] w-full">
+    <Box
+      sx={{ bgcolor: theme.palette.background.default }}
+      className="flex flex-col md:flex-row"
+    >
+      <Box className="mt-24 flex flex-col md:flex-row">
         {/* First Column */}
-        <Box className="flex-[1_1_10%] h-full flex flex-col">
+        <Box className="flex-[1_1_20%] md:w-2/3 md:flex md:flex-col">
           {/* finance graph content */}
-
           <Box
             className="flex-1"
             sx={{ bgcolor: theme.palette.background.default }}
@@ -40,7 +42,7 @@ const FinancePage = () => {
           </Box>
           {/* transactions history*/}
           <Box
-            className="flex-1 "
+            className="flex-1"
             sx={{ bgcolor: theme.palette.background.default }}
           >
             {data ? (
@@ -50,7 +52,7 @@ const FinancePage = () => {
         </Box>
 
         {/* Second Column */}
-        <Box className="flex-1 h-full flex flex-col items-center">
+        <Box className="flex-[1_3_0%] md:flex md:flex-col items-center ">
           {isLoading ? (
             <SkeletonLoading />
           ) : data ? (

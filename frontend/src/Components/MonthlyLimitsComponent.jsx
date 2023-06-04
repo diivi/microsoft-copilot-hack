@@ -14,7 +14,7 @@ const MonthlyLimitsComponent = ({ tagsData }) => {
         </Typography>
       </Box>
       <Box>
-        <Grid container spacing={4}>
+        <Grid container columns={{ xs: 4, sm: 12, md: 12 }} spacing={4}>
           {tagsData.map((tag) => {
             return (
               <Grid key={tag.id} item xs={6}>

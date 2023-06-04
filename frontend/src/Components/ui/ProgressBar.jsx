@@ -3,13 +3,11 @@ import PropTypes from "prop-types";
 
 const ProgressBar = ({ total, progress, height, label, variant }) => {
   return (
-    <Box className={`flex flex-col ${
-      variant === "card"
-        ? "w-96"
-        : variant === "limit"
-        ? "w-full"
-        : ""
-    }`}>
+    <Box
+      className={`flex flex-col ${
+        variant === "card" ? "w-full" : variant === "limit" ? "w-full" : ""
+      }`}
+    >
       <Box
         className={`h-${height} bg-gray-800 overflow-hidden border-2 border-black `}
       >

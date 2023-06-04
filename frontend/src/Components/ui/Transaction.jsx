@@ -6,7 +6,7 @@ const Transaction = ({ transaction, variant }) => {
 
   return (
     <div
-      className={`flex items-center rounded-2xl p-4 mb-4 ${
+      className={`flex items-center rounded-2xl p-2 xs:p-4 mb-4 ${
         variant === "page"
           ? "bg-white"
           : variant === "dashboard"
@@ -23,10 +23,15 @@ const Transaction = ({ transaction, variant }) => {
             : `-$${transaction.amount}`}
         </p>
       </div>
-      <div className="ml-4 flex flex-row space-x-4">
+      <div className="ml-4 flex flex-row space-x-4 ">
         {transaction.tags.map((tag) => {
           return (
-            <p className="text-base font-semibold mb-1">{tag.tags.name}</p>
+            <p
+              key={tag.id}
+              className="hidden sm:block text-base font-semibold mb-1"
+            >
+              {tag.tags.name}
+            </p>
           );
         })}
         {/* <p className="text-base text-gray-600 mb-1">{transaction.tags}</p> */}

@@ -14,7 +14,7 @@ const TransactionsStack = ({ cardsData }) => {
   );
   return (
     <>
-      <Box className="flex flex-col items-center w-full p-4">
+      <Box className="flex flex-col items-center w-full p-2 sm:p-4">
         <Typography variant="h5" fontWeight={"bold"} className="self-start p-2">
           Transactions
         </Typography>

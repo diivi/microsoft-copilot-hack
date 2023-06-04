@@ -29,22 +29,28 @@ const DoughnutInfoCard = ({ tagsData }) => {
 
   return (
     <Box className=" gap-5 flex justify-start items-start w-full">
-      <Box className="h-52">
+      <Box className="h-52 hidden md:block">
         <DoughnutChart data={tagsData} total={sum} />
       </Box>
-      <Box className="flex flex-col gap-2 mt-4">
-        <Typography variant="h5" fontWeight={"semi-bold"}>
+      <Box className="flex flex-col gap-2 mt-4 w-full">
+        <Typography
+          className="self-center xs:self-start"
+          variant="h5"
+          fontWeight={"semi-bold"}
+        >
           This Month: <span className="font-bold">${sum}</span>
         </Typography>
-        <Grid container columns={{ xs: 4, sm: 4, md: 8 }} spacing={2}>
-          {tagsData.map((tag, index) => {
-            return (
-              <Grid key={tag.id} item xs={12} sm={6} md={4}>
-                <Legend label={tag.name} color={getColor(index)} />
-              </Grid>
-            );
-          })}
-        </Grid>
+        <Box className="hidden md:block">
+          <Grid container columns={{ xs: 4, sm: 4, md: 8 }} spacing={2}>
+            {tagsData.map((tag, index) => {
+              return (
+                <Grid key={tag.id} item xs={12} sm={12} md={4}>
+                  <Legend label={tag.name} color={getColor(index)} />
+                </Grid>
+              );
+            })}
+          </Grid>
+        </Box>
       </Box>
     </Box>
   );

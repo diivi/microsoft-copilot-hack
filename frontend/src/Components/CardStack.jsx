@@ -1,4 +1,4 @@
-import { Card, Typography } from "@mui/material";
+import { Box, Card, Typography } from "@mui/material";
 import CreditCard from "./ui/CreditCard";
 import AddCardModal from "./AddCardModal";
 
@@ -6,7 +6,7 @@ const CardStack = ({ cardData, postData }) => {
   return (
     <Card
       sx={{ borderRadius: "10px" }}
-      className=" bg-red-300 flex flex-col my-2 items-center p-2 pt-8 "
+      className="  self-center bg-red-300 flex w-full flex-col my-2 items-center p-2 mx-auto pt-8"
     >
       <Typography
         mb={2}
@@ -17,13 +17,15 @@ const CardStack = ({ cardData, postData }) => {
         Your Cards
       </Typography>
       <AddCardModal cardsData={cardData} postData={postData} />
-      {cardData.map((card) => {
-        return (
-          <>
-            <CreditCard card={card} />
-          </>
-        );
-      })}
+      <Box className="w-full">
+        {cardData.map((card) => {
+          return (
+            <>
+              <CreditCard card={card} />
+            </>
+          );
+        })}
+      </Box>
     </Card>
   );
 };
