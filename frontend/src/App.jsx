@@ -6,18 +6,19 @@ import FinancePage from "./pages/finance";
 import TasksPage from "./pages/TasksPage";
 import SidebarLayout from "./layout/sidebarLayout";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ResponsiveDrawer from "./layout/sidebarLayout";
 
 const App = () => {
   return (
     <BrowserRouter>
       <ThemeProvider theme={themeOptions}>
-        <SidebarLayout>
+        <ResponsiveDrawer>
           <Routes>
             <Route path="/" element={<Page1 />} />
             <Route path="/finance" element={<FinancePage />} />
             <Route path="/tasks" element={<TasksPage />} />
           </Routes>
-        </SidebarLayout>
+        </ResponsiveDrawer>
       </ThemeProvider>
     </BrowserRouter>
   );
