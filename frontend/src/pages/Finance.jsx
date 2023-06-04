@@ -29,7 +29,7 @@ const FinancePage = () => {
   return (
     <Box className="flex flex-col lg:flex-row gap-4">
       {/* First Column */}
-      <Box className="flex flex-col">
+      <Box className="flex flex-col w-full">
         {/* finance graph content */}
         <Box
           className="flex-1"
@@ -39,7 +39,7 @@ const FinancePage = () => {
         </Box>
         {/* transactions history*/}
         <Box
-          className="flex-1 mt-2"
+          className="flex-1"
           sx={{ bgcolor: theme.palette.background.default }}
         >
           {data ? (

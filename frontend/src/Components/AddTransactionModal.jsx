@@ -87,7 +87,7 @@ const AddTransactionModal = ({ postData, cardsData }) => {
 
   return (
     <div>
-      <Box className="hidden md:block">
+      <Box className="hidden lg:block ">
         <Button
           sx={{ borderRadius: 2 }}
           variant="contained"
@@ -97,7 +97,7 @@ const AddTransactionModal = ({ postData, cardsData }) => {
           Add Transaction
         </Button>
       </Box>
-      <Box className="block xl:hidden">
+      <Box className="block lg:hidden">
         <Fab onClick={handleOpen} size="small" color="primary" aria-label="add">
           +
         </Fab>

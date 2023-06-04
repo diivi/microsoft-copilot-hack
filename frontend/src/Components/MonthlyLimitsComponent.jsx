@@ -6,7 +6,7 @@ const MonthlyLimitsComponent = ({ tagsData }) => {
   return (
     <Card
       sx={{ bgcolor: "#BCDBA5", borderRadius: "10px" }}
-      className="m-5 mb-0 w-full p-4"
+      className="m-5 p-4"
     >
       <Box className="flex justify-start mb-4">
         <Typography variant="h6" fontWeight="bold">

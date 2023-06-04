@@ -6,7 +6,7 @@ const CardStack = ({ cardData, postData }) => {
   return (
     <Card
       sx={{ borderRadius: "10px" }}
-      className="  self-center  flex  w-full  flex-col my-2 items-center p-2 mx-auto pt-8 h-full mb-6"
+      className=" flex flex-col items-center p-2 mx-auto pt-8 h-full w-4/5 mb-6"
     >
       <Typography
         mb={2}
