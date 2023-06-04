@@ -46,7 +46,8 @@ const Weather = () => {
         console.log(response.data);
         // Update state with the city photo data
         if (response.data.results.length > 0) {
-          setCityPhoto(response.data.results[0]);
+          let randomNumber = Math.floor(Math.random() * 5);
+          setCityPhoto(response.data.results[randomNumber]);
         }
       } catch (error) {
         console.error('Error fetching city photo:', error);
@@ -84,7 +85,7 @@ const Weather = () => {
       ) : (
         cityPhoto && (
           <img
-            className=' w-2/5 h-auto rounded-lg shadow-lg md2:w-auto lg3:w-2/5'
+            className=' w-2/5 object-cover rounded-lg shadow-lg md2:w-auto lg3:w-2/5'
             src={cityPhoto.urls.small}
             alt={cityPhoto.alt_description}
           />
