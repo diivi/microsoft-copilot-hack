@@ -149,7 +149,7 @@ export default function TaskCard(props) {
                 <Stack direction={"row"} marginTop={"2rem"} justifyContent={"space-between"}>
                     <Typography
                         padding={"0.5rem"}
-
+                        noWrap
                         color="#1F1F21"
                         align='left'
                         fontSize={"0.8rem"}
@@ -162,6 +162,7 @@ export default function TaskCard(props) {
 
 
                     <Typography
+                        noWrap
                         padding={"0.5rem"}
                         color="#1F1F21"
                         align='left'
