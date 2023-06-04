@@ -11,21 +11,21 @@ const CreditCard = ({ card }) => {
       const screenWidth = window.innerWidth;
 
       if (screenWidth < 375) {
-        setAvatarSize(300); // Set size for screens below sm
-      } else if (screenWidth < 648) {
-        setAvatarSize(10); // Set size for screens between sm and md // } else if (screenWidth < 1024) { //   setAvatarSize("h-40"); // Set size for screens between md and lg // } else if (screenWidth < 1280) { //   setAvatarSize("h-48"); // Set size for screens between lg and xl // } else { //   setAvatarSize("h-56"); // Default size for screens above xl
-      } else if (screenWidth < 768) {
-        setAvatarSize(10); // Set size for screens between sm and md // } else if (screenWidth < 1024) { //   setAvatarSize("h-40"); // Set size for screens between md and lg // } else if (screenWidth < 1280) { //   setAvatarSize("h-48"); // Set size for screens between lg and xl // } else { //   setAvatarSize("h-56"); // Default size for screens above xl
+        setAvatarSize(300);
+      } else if (screenWidth < 715) {
+        setAvatarSize(300);
+      } else if (screenWidth < 920) {
+        setAvatarSize(400);
       } else if (screenWidth < 1024) {
-        setAvatarSize(250); // Set size for screens between sm and md // } else if (screenWidth < 1024) { //   setAvatarSize("h-40"); // Set size for screens between md and lg // } else if (screenWidth < 1280) { //   setAvatarSize("h-48"); // Set size for screens between lg and xl // } else { //   setAvatarSize("h-56"); // Default size for screens above xl
+        setAvatarSize(450);
       } else {
         setAvatarSize(300);
       }
     };
 
-    handleResize(); // Initial size calculation // Add event listener to update size on window resize
+    handleResize();
 
-    window.addEventListener("resize", handleResize); // Clean up the event listener on component unmount
+    window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -34,7 +34,7 @@ const CreditCard = ({ card }) => {
 
   return (
     <div className="flex flex-col items-center w-full">
-      <div key={card.id} className="hidden md:flex  justify-center p-0 ">
+      <div key={card.id} className="hidden sm:flex  justify-center p-0 ">
         <div className="p-5 w-full">
           <div className="w-full  max-w-lg h-56 m-auto bg-blue-800 rounded-xl relative text-white shadow-2xl">
             <div className="w-full h-full rounded-xl overflow-hidden">
@@ -54,7 +54,7 @@ const CreditCard = ({ card }) => {
                   </p>
                 </div>
                 <img
-                  className="hidden lg:block w-10 h-10"
+                  className=" w-10 h-10"
                   src="https://i.imgur.com/bbPHJVe.png"
                   alt="Card logo"
                 />
@@ -82,7 +82,7 @@ const CreditCard = ({ card }) => {
           </div>
         </div>
       </div>
-      <div className="my-1 flex flex-col md:hidden w-full">
+      <div className="my-1 flex flex-col sm:hidden w-full">
         <div className="flex w-full justify-between ">
           <Typography>Bank Name</Typography>
           <Typography>Card Number</Typography>
@@ -95,7 +95,7 @@ const CreditCard = ({ card }) => {
           label=""
         />
       </div>
-      <div className="hidden md:block w-full">
+      <div className="hidden sm:block w-full px-16">
         <ProgressBar
           progress={card.currentSpent}
           height={4}

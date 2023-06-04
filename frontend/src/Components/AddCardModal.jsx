@@ -42,7 +42,7 @@ const AddCardModal = ({ postData }) => {
 
     try {
       console.log(data);
-      await postData("http://localhost:8000/addcard/", data);
+      await postData("http://20.198.105.30:8000/addcard/", data);
       handleClose();
     } catch (error) {
       console.error(error);

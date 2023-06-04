@@ -27,28 +27,28 @@ const Weather = () => {
 
   if (!isLoading && weatherData) {
     const indices = [5, 13, 21, 29];
-  
+
     filteredData = indices.map((index) => weatherData.list[index]);
   }
-  {isLoading && <p>Loading...</p>}
-  {isError && <p>Error fetching weather data.</p>}
-  
+  { isLoading && <p>Loading...</p> }
+  { isError && <p>Error fetching weather data.</p> }
+
   const handleCityChange = (event) => {
     setCity(event.target.value);
   };
-  
+
   return (
     <div className='bg-boxHead font-mono text-mainGray rounded-2xl m-8 p-4'>
       <h2 className='text-xl text-center mb-4'>Weather Forecast</h2>
       <div className="flex justify-evenly mb-4">
-      {!isLoading && weatherData && (
-            <img className='w-36' src={`https://openweathermap.org/img/wn/${weatherData.list[0].weather[0].icon}.png`} alt="" />
-          )}
-          {isLoading && <p>Loading...</p>}
-          {isError && <p>Error fetching weather data.</p>}
-        
+        {!isLoading && weatherData && (
+          <img className='w-36' src={`https://openweathermap.org/img/wn/${weatherData.list[0].weather[0].icon}.png`} alt="" />
+        )}
+        {isLoading && <p>Loading...</p>}
+        {isError && <p>Error fetching weather data.</p>}
+
         <div className="flex flex-col justify-center items-center gap-3">
-          
+
           <select
             value={city}
             onChange={handleCityChange}
@@ -68,25 +68,25 @@ const Weather = () => {
           {isError && <p>Error fetching weather data.</p>}
         </div>
       </div>
-        <div className="flex justify-evenly mb-4">
-            <div className="flex flex-col justify-center items-center gap-3">
-                {!isLoading && weatherData && (
-                    <h3 className='text-mainGray text-3xl'>{weatherData.list[0].main.humidity}%</h3>
-                )}
-                {isLoading && <p>Loading...</p>}
-                {isError && <p>Error fetching weather data.</p>}
-                <h3 className='text-2xl'>Humidity</h3>
-            </div>
-            <div className="flex flex-col justify-center items-center gap-3">
-                {!isLoading && weatherData && (
-                    <h3 className='text-mainGray text-3xl'>{weatherData.list[0].wind.speed}m/s</h3>
-                )}
-                {isLoading && <p>Loading...</p>}
-                {isError && <p>Error fetching weather data.</p>}
-                <h3 className='text-2xl'>Wind Speed</h3>
-            </div>
+      <div className="flex justify-evenly mb-4">
+        <div className="flex flex-col justify-center items-center gap-3">
+          {!isLoading && weatherData && (
+            <h3 className='text-mainGray text-3xl'>{weatherData.list[0].main.humidity}%</h3>
+          )}
+          {isLoading && <p>Loading...</p>}
+          {isError && <p>Error fetching weather data.</p>}
+          <h3 className='text-2xl'>Humidity</h3>
         </div>
-        <div className="flex justify-between gap-4 mx-4">
+        <div className="flex flex-col justify-center items-center gap-3">
+          {!isLoading && weatherData && (
+            <h3 className='text-mainGray text-3xl'>{weatherData.list[0].wind.speed}m/s</h3>
+          )}
+          {isLoading && <p>Loading...</p>}
+          {isError && <p>Error fetching weather data.</p>}
+          <h3 className='text-2xl'>Wind Speed</h3>
+        </div>
+      </div>
+      <div className="flex justify-between gap-4 mx-4">
         {weatherData && (
           <>
             {filteredData.map((day) => (

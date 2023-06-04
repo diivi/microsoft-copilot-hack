@@ -5,11 +5,12 @@ import SkeletonLoading from "../Components/ui/SkeletonLoading";
 import { useState, useEffect } from "react";
 import CardStack from "../Components/CardStack";
 import TransactionsStack from "../Components/TransactionsStack";
+import SkeletonLoading2 from "../Components/ui/SkeletonLoading2";
 
 const FinancePage = () => {
   const [cards, setCards] = useState([]);
   const { data, isLoading, postData } = useData(
-    "http://localhost:8000/getusercards/",
+    "http://20.198.105.30:8000/getusercards/",
     {},
     {
       "Content-Type": "application/json",
@@ -28,11 +29,11 @@ const FinancePage = () => {
   return (
     <Box
       sx={{ bgcolor: theme.palette.background.default }}
-      className="flex flex-col md:flex-row"
+      className="flexw w-full flex-col md:flex-row"
     >
-      <Box className="mt-24 flex flex-col md:flex-row">
+      <Box className="mt-24 flex flex-col lg:flex-row">
         {/* First Column */}
-        <Box className="flex-[1_1_20%] md:w-2/3 md:flex md:flex-col">
+        <Box className="flex-[1_1_20%] lg:w-2/3 md:flex md:flex-col">
           {/* finance graph content */}
           <Box
             className="flex-1"
@@ -52,15 +53,15 @@ const FinancePage = () => {
         </Box>
 
         {/* Second Column */}
-        {/* <Box className="flex-[1_3_0%] md:flex md:flex-col items-center ">
+        <Box className="flex-[1_3_0%]  md:flex md:flex-col items-center ">
           {isLoading ? (
-            <SkeletonLoading />
+            <SkeletonLoading2 />
           ) : data ? (
             <CardStack cardData={data.cards} postData={postData} />
           ) : (
             <h1>Error</h1>
           )}
-        </Box> */}
+        </Box>
       </Box>
     </Box>
   );

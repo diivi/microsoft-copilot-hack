@@ -4,7 +4,7 @@ import DoughnutInfoCard from "./DoughnutInfoCard";
 import TransactionsStack from "./TransactionsStack";
 const PersonalFin = () => {
   const { data, isLoading, isError, updateData } = useData(
-    "http://localhost:8000/getusertags/",
+    "http://20.198.105.30:8000/getusertags/",
     {},
     {
       "Content-Type": "application/json",
@@ -17,7 +17,7 @@ const PersonalFin = () => {
     isLoading: cardLoading,
     postData,
   } = useData(
-    "http://localhost:8000/getusercards/",
+    "http://20.198.105.30:8000/getusercards/",
     {},
     {
       "Content-Type": "application/json",

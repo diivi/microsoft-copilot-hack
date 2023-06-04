@@ -1,6 +1,7 @@
 // import { FaUser } from 'react-icons/fa';
 
-import { Box, CircularProgress, Grid } from "@mui/material";
+import { Box, CircularProgress, Grid, Stack, Typography } from "@mui/material";
+import Avatar from '@mui/material/Avatar';
 
 import TaskTile from "./tasks/TaskTile";
 import TaskProgressTile from "./tasks/TaskProgressTile";
@@ -36,18 +37,43 @@ const Tasks = () => {
 
   const formattedDate = currentDate.toLocaleDateString(undefined, options);
   return (
-    <>
-      <div className="flex flex-row items-center p-4">
-        <div className="text-2xl px-2">{/* <FaUser /> */}</div>
-        <div className="flex flex-col">
-          <h4>{greeting} Ary Bha</h4>
-          <h1>{formattedDate}</h1>
-        </div>
-      </div>
+    <Box>
+      <Box px={4}>
+        <Stack direction="row" spacing={2} alignItems={"center"}>
+          <Avatar alt="Aemy Sharp" src="/static/images/avatar/1.jpg" sx={{ width: 94, height: 94 }} />
+          <Stack direction="column" spacing={0}>
+            <Typography
+              fontSize={"1.25rem"}
+              component="span"
+              fontFamily={"Roboto"}
+              color={"#1F1F21"}
+            >{greeting},
+              <Typography
+                fontSize={"1.25rem"}
+                component="span"
+                fontWeight={"bold"}
+                fontFamily={"Roboto"}
+                color={"#1F1F21"}
+              > Aryaman!
+              </Typography>
+            </Typography>
+            <Typography
+              fontSize={"2rem"}
+              component="div"
+              fontWeight={"bold"}
+              fontFamily={"Roboto"}
+              color={"#00285A"}
+            >{formattedDate}
+            </Typography>
+          </Stack>
+        </Stack>
+      </Box>
+
+
       <Box padding={"2rem"}>
         {isLoading ? <CircularProgress /> :
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6} md={6}>
+            <Grid item xs={12} sm={12} md={6}>
               <TaskProgressTile />
             </Grid>
             {
@@ -67,7 +93,7 @@ const Tasks = () => {
           </Grid>
         }
       </Box>
-    </>
+    </Box>
   );
 };
 

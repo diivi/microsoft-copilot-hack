@@ -2,10 +2,12 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-import { Avatar, Stack } from '@mui/material';
+import { Stack } from '@mui/material';
 
 import { useTheme } from '@mui/material';
 import { Link } from 'react-router-dom';
+
+import AssignmentIcon from '@mui/icons-material/Assignment';
 
 export default function TaskTile(props) {
     const theme = useTheme()
@@ -16,7 +18,6 @@ export default function TaskTile(props) {
             height: "100%"
         }}
         >
-
             <CardActionArea>
                 <Link to="/tasks">
                     <CardContent
@@ -26,19 +27,21 @@ export default function TaskTile(props) {
                         }}
                     >
                         <Stack
-                            direction="row"
+                            direction="row-reverse"
                             justifyContent="space-between"
                             alignItems="center"
                             mb={'0.5rem'}
                         >
+                            <AssignmentIcon sx={{ color: "grey" }} />
                             <Typography
+                                noWrap
                                 fontSize={"1.2rem"}
                                 align='left'
                                 color={theme.palette.secondary.main}
                             >
                                 {props.title}
                             </Typography>
-                            <Avatar src="/" />
+
                         </Stack>
                         <Typography
                             color="#1F1F21"
