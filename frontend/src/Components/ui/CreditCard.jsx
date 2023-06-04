@@ -13,13 +13,13 @@ const CreditCard = ({ card }) => {
       if (screenWidth < 375) {
         setAvatarSize(300); // Set size for screens below sm
       } else if (screenWidth < 648) {
-        setAvatarSize(200); // Set size for screens between sm and md // } else if (screenWidth < 1024) { //   setAvatarSize("h-40"); // Set size for screens between md and lg // } else if (screenWidth < 1280) { //   setAvatarSize("h-48"); // Set size for screens between lg and xl // } else { //   setAvatarSize("h-56"); // Default size for screens above xl
+        setAvatarSize(10); // Set size for screens between sm and md // } else if (screenWidth < 1024) { //   setAvatarSize("h-40"); // Set size for screens between md and lg // } else if (screenWidth < 1280) { //   setAvatarSize("h-48"); // Set size for screens between lg and xl // } else { //   setAvatarSize("h-56"); // Default size for screens above xl
       } else if (screenWidth < 768) {
-        setAvatarSize(100); // Set size for screens between sm and md // } else if (screenWidth < 1024) { //   setAvatarSize("h-40"); // Set size for screens between md and lg // } else if (screenWidth < 1280) { //   setAvatarSize("h-48"); // Set size for screens between lg and xl // } else { //   setAvatarSize("h-56"); // Default size for screens above xl
+        setAvatarSize(10); // Set size for screens between sm and md // } else if (screenWidth < 1024) { //   setAvatarSize("h-40"); // Set size for screens between md and lg // } else if (screenWidth < 1280) { //   setAvatarSize("h-48"); // Set size for screens between lg and xl // } else { //   setAvatarSize("h-56"); // Default size for screens above xl
       } else if (screenWidth < 1024) {
         setAvatarSize(250); // Set size for screens between sm and md // } else if (screenWidth < 1024) { //   setAvatarSize("h-40"); // Set size for screens between md and lg // } else if (screenWidth < 1280) { //   setAvatarSize("h-48"); // Set size for screens between lg and xl // } else { //   setAvatarSize("h-56"); // Default size for screens above xl
       } else {
-        setAvatarSize(400);
+        setAvatarSize(300);
       }
     };
 
@@ -34,7 +34,7 @@ const CreditCard = ({ card }) => {
 
   return (
     <div className="flex flex-col items-center w-full">
-      <div key={card.id} className="hidden md:flex justify-center p-0 ">
+      <div key={card.id} className="hidden md:flex  justify-center p-0 ">
         <div className="p-5 w-full">
           <div className="w-full  max-w-lg h-56 m-auto bg-blue-800 rounded-xl relative text-white shadow-2xl">
             <div className="w-full h-full rounded-xl overflow-hidden">

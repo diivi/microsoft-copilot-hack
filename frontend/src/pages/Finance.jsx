@@ -52,7 +52,7 @@ const FinancePage = () => {
         </Box>
 
         {/* Second Column */}
-        <Box className="flex-[1_3_0%] md:flex md:flex-col items-center ">
+        {/* <Box className="flex-[1_3_0%] md:flex md:flex-col items-center ">
           {isLoading ? (
             <SkeletonLoading />
           ) : data ? (
@@ -60,7 +60,7 @@ const FinancePage = () => {
           ) : (
             <h1>Error</h1>
           )}
-        </Box>
+        </Box> */}
       </Box>
     </Box>
   );
