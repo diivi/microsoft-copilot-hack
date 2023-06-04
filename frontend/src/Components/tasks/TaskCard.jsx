@@ -8,6 +8,7 @@ import EditIcon from '@mui/icons-material/Edit';
 
 import IconButton from '@mui/material/IconButton';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 import { useState } from "react";
 import dayjs from "dayjs";
@@ -35,7 +36,6 @@ export default function TaskCard(props) {
     return (
         <Card
             sx={{
-                minWidth: "300px",
                 display: "flex",
                 borderRadius: "16px",
                 backgroundColor: props.completed ? "#CE796B" : "#BCDBA5",
@@ -47,6 +47,7 @@ export default function TaskCard(props) {
                 handleClose={handleClose}
                 title={props.title}
                 description={props.description}
+                dateCreated={props.dateCreated}
                 dueDate={props.dueDate}
                 id={props.id}
                 completed={props.completed}
@@ -112,6 +113,7 @@ export default function TaskCard(props) {
                                         title: props.title,
                                         description: props.description,
                                         dueDate: props.dueDate,
+                                        dateCreated: props.dateCreated,
                                         isCompleted: !props.completed,
                                         owner_id: "abdc"
                                     }
@@ -144,16 +146,33 @@ export default function TaskCard(props) {
                     {props.description}
                 </Typography>
 
-                <Typography
-                    color="#1F1F21"
-                    align='left'
-                    fontSize={"0.8rem"}
-                    sx={{
-                        textDecoration: props.completed ? "line-through" : "none",
-                    }}
-                >
-                    Due Date: {dayjs(props.dueDate).format("DD/MM/YYYY") + " " + dayjs(props.dueDate).format("hh:mm A") || "No due date"}
-                </Typography>
+                <Stack direction={"row"} marginTop={"2rem"} justifyContent={"space-between"}>
+                    <Typography
+                        padding={"0.5rem"}
+
+                        color="#1F1F21"
+                        align='left'
+                        fontSize={"0.8rem"}
+                        sx={{
+                            textDecoration: props.completed ? "line-through" : "none",
+                        }}
+                    >
+                        Created: <br /> {dayjs(props.dateCreated).format("DD/MM/YYYY")}
+                    </Typography>
+
+
+                    <Typography
+                        padding={"0.5rem"}
+                        color="#1F1F21"
+                        align='left'
+                        fontSize={"0.8rem"}
+                        sx={{
+                            textDecoration: props.completed ? "line-through" : "none",
+                        }}
+                    >
+                        Deadline: <br /> {dayjs(props.dueDate).format("DD/MM/YYYY") || "No due date"}
+                    </Typography>
+                </Stack>
 
             </CardContent>
 

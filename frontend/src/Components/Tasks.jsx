@@ -1,5 +1,3 @@
-// import { FaUser } from 'react-icons/fa';
-
 import { Box, CircularProgress, Grid, Stack, Typography } from "@mui/material";
 import Avatar from '@mui/material/Avatar';
 
@@ -68,7 +66,6 @@ const Tasks = () => {
           </Stack>
         </Stack>
       </Box>
-
 
       <Box padding={"2rem"}>
         {isLoading ? <CircularProgress /> :

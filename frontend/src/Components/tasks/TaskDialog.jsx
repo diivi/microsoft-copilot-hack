@@ -82,6 +82,7 @@ export default function TaskDialog(props) {
                                     title: title,
                                     description: description,
                                     dueDate: dueDate,
+                                    dateCreated: props.dateCreated,
                                     isCompleted: props.completed,
                                     owner_id: "abdc"
                                 }
@@ -98,6 +99,7 @@ export default function TaskDialog(props) {
                                     title: title,
                                     description: description,
                                     dueDate: dueDate,
+                                    dateCreated: dayjs(),
                                     isCompleted: false,
                                     owner_id: "abdc"
                                 }

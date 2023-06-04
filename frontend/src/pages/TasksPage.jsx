@@ -22,7 +22,7 @@ export default function TasksPage() {
     const handleClose = () => setOpen(false)
 
     return (
-        <Stack direction={"column"} p={"2rem"} >
+        <Stack direction={"column"} p={"2rem"}>
             <TaskDialog open={open} handleOpen={handleOpen} handleClose={handleClose} isEdit={false} />
             <Stack
                 direction="row"
@@ -63,13 +63,14 @@ export default function TasksPage() {
                                 {
                                     data?.filter(task => !task.isCompleted).map((task) => {
                                         return (
-                                            <Grid item xs={12} sm={12} md={6} key={task.id}>
+                                            <Grid item xs={12} sm={6} md={4} key={task.id}>
                                                 <TaskCard
                                                     key={task.id}
                                                     id={task.id}
                                                     title={task.title}
                                                     description={task.description}
                                                     completed={task.isCompleted}
+                                                    dateCreated={task.dateCreated}
                                                     dueDate={task.dueDate}
                                                 />
                                             </Grid>
@@ -92,8 +93,15 @@ export default function TasksPage() {
                                     data?.filter(task => task.isCompleted).map((task) => {
                                         return (
                                             task.isCompleted ?
-                                                <Grid item xs={12} sm={12} md={6} key={task.id}>
-                                                    <TaskCard key={task.id} title={task.title} id={task.id} description={task.description} completed={task.isCompleted} dueDate={task.dueDate} />
+                                                <Grid item xs={12} sm={6} md={4} key={task.id}>
+                                                    <TaskCard
+                                                        key={task.id}
+                                                        title={task.title}
+                                                        id={task.id}
+                                                        description={task.description}
+                                                        completed={task.isCompleted}
+                                                        dateCreated={task.dateCreated}
+                                                        dueDate={task.dueDate} />
                                                 </Grid>
                                                 : null
                                         )
