@@ -70,7 +70,7 @@ function ResponsiveDrawer(props) {
       >
         <Toolbar>
           <IconButton
-            color="inherit"
+            color={theme.palette.text.primary}
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}

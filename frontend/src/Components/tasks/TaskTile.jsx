@@ -16,7 +16,6 @@ export default function TaskTile(props) {
             height: "100%"
         }}
         >
-
             <CardActionArea>
                 <Link to="/tasks">
                     <CardContent

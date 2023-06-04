@@ -40,14 +40,16 @@ const Tasks = () => {
       <div className="flex flex-row items-center p-4">
         <div className="text-2xl px-2">{/* <FaUser /> */}</div>
         <div className="flex flex-col">
-          <h4>{greeting} Ary Bha</h4>
+          <h4>{greeting}, Ary Bha</h4>
           <h1>{formattedDate}</h1>
         </div>
       </div>
+
+
       <Box padding={"2rem"}>
         {isLoading ? <CircularProgress /> :
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6} md={6}>
+            <Grid item xs={12} sm={12} md={6}>
               <TaskProgressTile />
             </Grid>
             {
