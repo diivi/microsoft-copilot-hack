@@ -66,6 +66,7 @@ export default function TaskCard(props) {
                     mb={"0.5rem"}
                 >
                     <Typography
+                        noWrap
                         fontSize={"1.5rem"}
                         align="left"
                         color={theme.palette.secondary.main}
