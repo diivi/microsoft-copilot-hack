@@ -6,7 +6,9 @@ import { Stack } from "@mui/material";
 import LinearProgress from "@mui/material/LinearProgress";
 import { Link } from "react-router-dom";
 
+import { useState, useEffect } from "react";
 import { useTheme } from "@mui/material";
+
 
 import useData from "../../hooks/swrHook";
 
@@ -17,6 +19,14 @@ export default function TaskProgressTile() {
             owner_id: "abdc"
         }
     )
+
+    const [tasksCompleted, setTasksCompleted] = useState(0)
+
+    useEffect(() => {
+        if (data) {
+            setTasksCompleted(data.filter(task => task.isCompleted).length)
+        }
+    }, [])
 
     const theme = useTheme()
     return (
@@ -71,7 +81,7 @@ export default function TaskProgressTile() {
                         </Stack>
                         <LinearProgress
                             variant="determinate"
-                            value={data?.filter(task => task.isCompleted).length / data?.length * 100}
+                            value={tasksCompleted / data?.length * 100}
                             color="secondary"
                         />
                     </CardContent>
