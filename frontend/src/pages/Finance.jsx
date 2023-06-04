@@ -33,7 +33,7 @@ const FinancePage = () => {
     >
       <Box className="flex flex-col lg:flex-row">
         {/* First Column */}
-        <Box className="flex-[1_1_20%] lg:w-2/3 md:flex md:flex-col mr-5">
+        <Box className="flex-[1_1_20%] lg:w-2/3 md:flex md:flex-col mx-5">
           {/* finance graph content */}
           <Box
             className="flex-1"
