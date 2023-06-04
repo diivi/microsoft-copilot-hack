@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import React from "react";
 
 const Transaction = ({ transaction, variant }) => {
@@ -35,7 +36,9 @@ const Transaction = ({ transaction, variant }) => {
           );
         })}
         {/* <p className="text-base text-gray-600 mb-1">{transaction.tags}</p> */}
-        <p className="text-base  text-gray-600 mb-1">{transaction.label}</p>
+        <Typography variant="subtitle1" className="text-gray-600 mb-1" noWrap>
+          {transaction.label}
+        </Typography>
       </div>
     </div>
   );

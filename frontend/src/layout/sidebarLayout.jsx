@@ -15,9 +15,9 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
-import PaymentsIcon from '@mui/icons-material/Payments';
-import AssignmentIcon from '@mui/icons-material/Assignment';
-import DashboardIcon from '@mui/icons-material/Dashboard';
+import PaymentsIcon from "@mui/icons-material/Payments";
+import AssignmentIcon from "@mui/icons-material/Assignment";
+import DashboardIcon from "@mui/icons-material/Dashboard";
 
 const drawerWidth = 240;
 
@@ -151,7 +151,13 @@ function ResponsiveDrawer(props) {
           {drawer}
         </Drawer>
       </Box>
-      <Box overflow={"hidden"} component="main" padding={"2rem"} marginTop={{ sm: "1rem", xs: "5rem" }} width={"100%"}>
+      <Box
+        overflow={"hidden"}
+        component="main"
+        padding={"2rem"}
+        marginTop={{ sm: "1rem", xs: "5rem" }}
+        width={"100%"}
+      >
         {props.children}
       </Box>
     </Box>

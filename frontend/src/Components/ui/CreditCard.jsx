@@ -10,16 +10,18 @@ const CreditCard = ({ card }) => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
 
-      if (screenWidth < 375) {
+      if (screenWidth < 680) {
+        setAvatarSize(250);
+      } else if (screenWidth < 875) {
         setAvatarSize(300);
-      } else if (screenWidth < 715) {
-        setAvatarSize(300);
-      } else if (screenWidth < 920) {
-        setAvatarSize(400);
-      } else if (screenWidth < 1024) {
+      } else if (screenWidth < 1050) {
         setAvatarSize(450);
-      } else {
+      } else if (screenWidth < 1100) {
+        setAvatarSize(220);
+      } else if (screenWidth < 1300) {
         setAvatarSize(300);
+      } else {
+        setAvatarSize(400);
       }
     };
 
@@ -44,6 +46,7 @@ const CreditCard = ({ card }) => {
                 variant="marble"
                 colors={["#bcdba5", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"]}
                 square={true}
+                style={{ width: "100%" }}
               />
             </div>
             <div className="w-full px-8 absolute top-10">

@@ -27,35 +27,42 @@ const FinancePage = () => {
 
   const theme = useTheme();
   return (
-    <Box className="flex flex-col lg:flex-row gap-4">
-      {/* First Column */}
-      <Box className="flex flex-col w-full">
-        {/* finance graph content */}
-        <Box
-          className="flex-1"
-          sx={{ bgcolor: theme.palette.background.default }}
-        >
-          <FinanceInfoCard />
+    <Box
+      sx={{ bgcolor: theme.palette.background.default }}
+      className="flexw w-full flex-col lg:flex-row"
+    >
+      <Box className="mt-24 flex flex-col lg:flex-row">
+        {/* First Column */}
+        <Box className="flex-[1_1_20%] lg:w-2/3 md:flex md:flex-col  mr-0 lg:mr-2 xl:mr-5">
+          {/* finance graph content */}
+          <Box
+            className="flex-1"
+            sx={{ bgcolor: theme.palette.background.default }}
+          >
+            <FinanceInfoCard />
+          </Box>
+          {/* transactions history*/}
+          <Box
+            className="flex-1 mt-2"
+            sx={{ bgcolor: theme.palette.background.default }}
+          >
+            {data ? (
+              <TransactionsStack cardsData={data.cards} postData={postData} />
+            ) : null}
+          </Box>
         </Box>
-        {/* transactions history*/}
-        <Box
-          className="flex-1"
-          sx={{ bgcolor: theme.palette.background.default }}
-        >
-          {data ? (
-            <TransactionsStack cardsData={data.cards} postData={postData} />
-          ) : null}
+
+        {/* Second Column */}
+        <Box className="flex-[1_3_0%]  md:flex md:flex-col items-center ">
+          {isLoading ? (
+            <SkeletonLoading2 />
+          ) : data ? (
+            <CardStack cardData={data.cards} postData={postData} />
+          ) : (
+            <h1>Error</h1>
+          )}
         </Box>
       </Box>
-
-      {/* Second Column */}
-      {isLoading ? (
-        <SkeletonLoading2 />
-      ) : data ? (
-        <CardStack cardData={data.cards} postData={postData} />
-      ) : (
-        <h1>Error</h1>
-      )}
     </Box>
   );
 };

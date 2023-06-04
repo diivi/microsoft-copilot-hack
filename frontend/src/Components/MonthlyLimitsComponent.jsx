@@ -4,17 +4,14 @@ import ProgressBar from "./ui/ProgressBar";
 
 const MonthlyLimitsComponent = ({ tagsData }) => {
   return (
-    <Card
-      sx={{ bgcolor: "#BCDBA5", borderRadius: "10px" }}
-      className="m-5 p-4"
-    >
+    <Card sx={{ bgcolor: "#BCDBA5", borderRadius: "10px" }} className="m-5 p-4">
       <Box className="flex justify-start mb-4">
         <Typography variant="h6" fontWeight="bold">
           Monthly Limits
         </Typography>
       </Box>
       <Box>
-        <Grid container columns={{ xs: 4, sm: 12, md: 12 }} spacing={4}>
+        <Grid container columns={{ xs: 4, sm: 4, md: 12 }} spacing={4}>
           {tagsData.map((tag) => {
             return (
               <Grid key={tag.id} item xs={6}>

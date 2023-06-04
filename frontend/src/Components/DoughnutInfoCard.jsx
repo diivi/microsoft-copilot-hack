@@ -34,7 +34,7 @@ const DoughnutInfoCard = ({ tagsData }) => {
       </Box>
       <Box className="flex flex-col gap-2 mt-4 w-full">
         <Typography
-          className="self-center xs:self-start"
+          className="self-center md:self-start text-center md:text-start"
           variant="h5"
           fontWeight={"semi-bold"}
         >
