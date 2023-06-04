@@ -14,8 +14,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material";
-import CircleIcon from "@mui/icons-material/Circle";
 import { Link } from "react-router-dom";
+import PaymentsIcon from '@mui/icons-material/Payments';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 
 const drawerWidth = 240;
 
@@ -48,12 +50,18 @@ function ResponsiveDrawer(props) {
           ["Dashboard", "/"],
           ["Tasks", "/tasks"],
           ["Finance", "/finance"],
-        ].map((text) => (
+        ].map((text, index) => (
           <Link to={text[1]}>
             <ListItem key={text[0]} disablePadding>
-              <ListItemButton>
+              <ListItemButton alignItems="center">
                 <ListItemIcon>
-                  <CircleIcon sx={{ color: "white" }} />
+                  {index === 0 ? (
+                    <DashboardIcon sx={{ color: "#ffffff" }} />
+                  ) : index === 1 ? (
+                    <AssignmentIcon sx={{ color: "#ffffff" }} />
+                  ) : (
+                    <PaymentsIcon sx={{ color: "#ffffff" }} />
+                  )}
                 </ListItemIcon>
                 <ListItemText primary={text[0]} />
               </ListItemButton>
@@ -143,7 +151,7 @@ function ResponsiveDrawer(props) {
           {drawer}
         </Drawer>
       </Box>
-      <Box component="main" padding={"2rem"} marginTop={"5rem"} width={"100%"}>
+      <Box component="main" padding={"2rem"} marginTop={{ sm: "1rem", xs: "5rem" }} width={"100%"}>
         {props.children}
       </Box>
     </Box>

@@ -22,7 +22,7 @@ export default function TasksPage() {
     const handleClose = () => setOpen(false)
 
     return (
-        <Stack direction={"column"} p={"2rem"}>
+        <Stack direction={"column"}>
             <TaskDialog open={open} handleOpen={handleOpen} handleClose={handleClose} isEdit={false} />
             <Stack
                 direction="row"
