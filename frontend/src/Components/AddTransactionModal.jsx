@@ -16,6 +16,7 @@ import {
   Chip,
   OutlinedInput,
   CircularProgress,
+  Fab,
 } from "@mui/material";
 
 const AddTransactionModal = ({ postData, cardsData }) => {
@@ -86,14 +87,21 @@ const AddTransactionModal = ({ postData, cardsData }) => {
 
   return (
     <div>
-      <Button
-        sx={{ borderRadius: 2 }}
-        variant="contained"
-        color="secondary"
-        onClick={handleOpen}
-      >
-        Add Transaction
-      </Button>
+      <Box className="hidden md:block">
+        <Button
+          sx={{ borderRadius: 2 }}
+          variant="contained"
+          color="secondary"
+          onClick={handleOpen}
+        >
+          Add Transaction
+        </Button>
+      </Box>
+      <Box className="block xl:hidden">
+        <Fab onClick={handleOpen} size="small" color="primary" aria-label="add">
+          +
+        </Fab>
+      </Box>
       <Modal
         open={open}
         onClose={handleClose}
