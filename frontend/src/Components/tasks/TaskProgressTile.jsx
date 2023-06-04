@@ -66,7 +66,7 @@ export default function TaskProgressTile() {
                                 align="left"
                                 color={theme.palette.text.secondary}
                             >
-                                {data?.length}
+                                /{data?.length}
                             </Typography>
                         </Stack>
                         <LinearProgress
