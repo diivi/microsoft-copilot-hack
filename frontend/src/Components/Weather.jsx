@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import useData from "../hooks/swrHook";
 import axios from "axios";
-import { CircularProgress} from "@mui/material";
+import { CircularProgress } from "@mui/material";
 const cityOptions = [
   { value: "ahmedabad", label: "Ahmedabad" },
   { value: "bangalore", label: "Bangalore" },
@@ -78,9 +78,8 @@ const Weather = () => {
   };
 
   return (
-    <div className='bg-white font-mono text-boxHead rounded-2xl p-4 transition duration-300 ease-in-out
-     hover:bg-hoverGray shadow-md'>
-      <h2 className="text-2xl text-center m-4 mb-8">Weather Forecast</h2>
+    <div className='bg-white font-mono text-boxHead rounded-2xl p-4 transition duration-300 ease-in-out shadow-md'>
+      <h2 className="text-2xl font-sans text-center m-4 mb-8">Weather Forecast</h2>
       <div className="flex justify-evenly mb-8 flex-row md2:flex-col md2:items-center md2:gap-4 lg3:flex-row
       sm2:flex-col sm2:items-center sm2:gap-4">
         {imgLoading ? (
@@ -92,14 +91,14 @@ const Weather = () => {
           cityPhoto && (
             <img
               className="w-2/5 object-cover rounded-lg shadow-lg md2:w-auto lg3:w-2/5 sm2:w-3/4"
-              style={{height: "10rem"}}
+              style={{ height: "10rem" }}
               src={cityPhoto.urls.small}
               alt={cityPhoto.alt_description}
             />
           )
         )}
 
-        <div className="flex flex-col justify-center items-center gap-3">
+        <div className="flex flex-col justify-center  gap-3">
           <select
             value={city}
             onChange={handleCityChange}
@@ -120,26 +119,26 @@ const Weather = () => {
           {isError && <p>Error fetching weather data.</p>}
         </div>
       </div>
-      <div className="flex justify-evenly mb-14 flex-row md2:flex-col md2:gap-4 lg3:flex-row xs3:mb-8">
+      <div className="flex justify-evenly mb-10 flex-row md2:flex-col md2:gap-4 lg3:flex-row xs3:mb-8">
         <div className="flex flex-col justify-center items-center gap-3">
           {!isLoading && weatherData && (
-            <h3 className="text-3xl xs2:text-lg">
+            <h3 className="text-3xl xs2:text-lg font-bold">
               {weatherData.list[0].main.humidity}%
             </h3>
           )}
           {isLoading && <p>Loading...</p>}
           {isError && <p>Error fetching weather data.</p>}
-          <h3 className="text-2xl xs2:text-base">Humidity</h3>
+          <h3 className="text-xl xs2:text-base font-sans text-gray-700">Humidity</h3>
         </div>
         <div className="flex flex-col justify-center items-center gap-3">
           {!isLoading && weatherData && (
-            <h3 className="text-3xl xs2:text-lg">
+            <h3 className="text-3xl xs2:text-lg font-bold">
               {weatherData.list[0].wind.speed}m/s
             </h3>
           )}
           {isLoading && <p>Loading...</p>}
           {isError && <p>Error fetching weather data.</p>}
-          <h3 className="text-2xl xs2:text-base">Wind Speed</h3>
+          <h3 className="text-xl xs2:text-base font-sans text-gray-700">Wind Speed</h3>
         </div>
       </div>
       <div className="flex xs3:hidden justify-evenly mx-4 gap-1 xl2:flex-wrap lg2:gap-1">
@@ -149,7 +148,7 @@ const Weather = () => {
               <div
                 key={day.dt}
                 className="flex flex-col items-center justify-around text-mainGray
-                bg-boxRed rounded-full h-44 p-4 mb-4  "
+                bg-boxHead rounded-full h-44 p-4 mb-4  "
               >
                 <img
                   src={`https://openweathermap.org/img/wn/${day.weather[0].icon}.png`}
@@ -168,7 +167,7 @@ const Weather = () => {
                   </h3>
                 </div>
                 <span className="text-center">
-                  {new Date(day.dt_txt).getDate()},{" "}
+                  {new Date(day.dt_txt).getDate()},
                   {new Date(day.dt_txt).toLocaleString("default", {
                     month: "short",
                   })}
