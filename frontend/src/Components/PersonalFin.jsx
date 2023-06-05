@@ -41,7 +41,6 @@ const PersonalFin = () => {
           borderRadius: "10px",
           bgcolor: "transparent",
           overflow: "auto",
-          maxHeight: 200,
         }}
       >
         {cardData ? (

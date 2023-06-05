@@ -19,7 +19,7 @@ const Transaction = ({ transaction, variant }) => {
         className={`rounded-full h-8 w-20 flex items-center justify-center ${pillColor}`}
       >
         <p className="text-lg font-semibold text-center">
-          {transaction.type == "incoming" >= 0
+          {transaction.type == "incoming"
             ? `+$${transaction.amount}`
             : `-$${transaction.amount}`}
         </p>
