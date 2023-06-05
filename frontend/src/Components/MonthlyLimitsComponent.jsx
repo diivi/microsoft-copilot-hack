@@ -4,7 +4,10 @@ import ProgressBar from "./ui/ProgressBar";
 
 const MonthlyLimitsComponent = ({ tagsData }) => {
   return (
-    <Card sx={{ bgcolor: "#BCDBA5", borderRadius: "10px" }} className="m-5 p-4">
+    <Card
+      sx={{ bgcolor: "#BCDBA5", borderRadius: "10px" }}
+      className="m-5 p-4 w-full "
+    >
       <Box className="flex justify-start mb-4">
         <Typography variant="h6" fontWeight="bold">
           Monthly Limits
