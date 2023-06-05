@@ -12,12 +12,14 @@ const CreditCard = ({ card }) => {
 
       if (screenWidth < 680) {
         setAvatarSize(250);
-      } else if (screenWidth < 875) {
+      } else if (screenWidth < 900) {
         setAvatarSize(300);
-      } else if (screenWidth < 1050) {
+      } else if (screenWidth < 1024) {
         setAvatarSize(450);
-      } else if (screenWidth < 1100) {
+      } else if (screenWidth < 1050) {
         setAvatarSize(220);
+      } else if (screenWidth < 1280) {
+        setAvatarSize(250);
       } else if (screenWidth < 1300) {
         setAvatarSize(300);
       } else {
