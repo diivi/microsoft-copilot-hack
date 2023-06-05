@@ -39,6 +39,7 @@ export default function TaskCard(props) {
                 display: "flex",
                 borderRadius: "16px",
                 backgroundColor: props.completed ? "#CE796B" : "#BCDBA5",
+                height: "100%",
             }}
         >
             <TaskDialog
