@@ -32,7 +32,7 @@ const PersonalFin = () => {
   return (
     <Card
       sx={{ borderRadius: "10px" }}
-      className="flex flex-col mt-6 items-center p-4 pt-8"
+      className="flex flex-col mt-6 items-center gap-5 p-4 pt-8"
     >
       {data ? <DoughnutInfoCard tagsData={data.tags} /> : null}
       <Box

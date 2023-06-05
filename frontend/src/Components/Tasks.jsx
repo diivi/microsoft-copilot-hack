@@ -1,5 +1,6 @@
 import { Box, CircularProgress, Grid, Stack, Typography } from "@mui/material";
 import Avatar from '@mui/material/Avatar';
+import avatarImg from "../assets/avatar.jpg";
 
 import TaskTile from "./tasks/TaskTile";
 import TaskProgressTile from "./tasks/TaskProgressTile";
@@ -38,7 +39,7 @@ const Tasks = () => {
     <Box>
       <Box>
         <Stack direction="row" spacing={2} alignItems={"center"}>
-          <Avatar alt="Aemy Sharp" src="/static/images/avatar/1.jpg" sx={{ width: 94, height: 94 }} />
+          <Avatar alt="Aemy Sharp" src={avatarImg} sx={{ width: 94, height: 94 }} />
           <Stack direction="column" spacing={0}>
             <Typography
               fontSize={"1.25rem"}
