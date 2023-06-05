@@ -38,7 +38,7 @@ const Url = () => {
         <p className="text-boxHead text-sm text-left font-mono w-11/12">Here&apos;s the shortened url:</p>
         {/* copy icon inside a blue square button next to the url, both aligned left */}
         <div className="flex flex-row gap-2 items-center justify-start w-11/12 flex-wrap">
-          <p className="text-boxHead text-xl text-left font-mono"><b>{shortenedUrl}</b></p>
+          <p className="text-boxHead text-xs md:text-sm lg:text-xl  text-left font-mono"><b>{shortenedUrl}</b></p>
           <button className="text-xl text-boxHead rounded-lg p-2 focus:outline-none"
             onClick={() => {
               navigator.clipboard.writeText(shortenedUrl)
