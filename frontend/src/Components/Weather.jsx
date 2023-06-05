@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import useData from "../hooks/swrHook";
 import axios from "axios";
+import { CircularProgress} from "@mui/material";
 const cityOptions = [
   { value: "ahmedabad", label: "Ahmedabad" },
   { value: "bangalore", label: "Bangalore" },
@@ -77,17 +78,21 @@ const Weather = () => {
   };
 
   return (
-    <div className="bg-boxHead font-mono text-mainGray rounded-2xl p-4">
+    <div className='bg-white font-mono text-boxHead rounded-2xl p-4 transition duration-300 ease-in-out
+     hover:bg-hoverGray shadow-md'>
       <h2 className="text-2xl text-center m-4 mb-8">Weather Forecast</h2>
-      <div className="flex justify-evenly mb-8 flex-row md2:flex-col md2:items-center md2:gap-4 lg3:flex-row">
+      <div className="flex justify-evenly mb-8 flex-row md2:flex-col md2:items-center md2:gap-4 lg3:flex-row
+      sm2:flex-col sm2:items-center sm2:gap-4">
         {imgLoading ? (
-          <div className="w-36 h-36 flex items-center justify-center">
-            <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-gray-900"></div>
-          </div>
+          // <div className="w-36 h-36 flex items-center justify-center">
+          //   <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-gray-900"></div>
+          // </div>
+          <CircularProgress />
         ) : (
           cityPhoto && (
             <img
-              className=" w-2/5 object-cover rounded-lg shadow-lg md2:w-auto lg3:w-2/5"
+              className="w-2/5 object-cover rounded-lg shadow-lg md2:w-auto lg3:w-2/5 sm2:w-3/4"
+              style={{height: "10rem"}}
               src={cityPhoto.urls.small}
               alt={cityPhoto.alt_description}
             />
@@ -98,7 +103,7 @@ const Weather = () => {
           <select
             value={city}
             onChange={handleCityChange}
-            className="block text-2xl w-full bg-boxHead focus:outline-none"
+            className="block text-2xl w-full bg-transparent focus:outline-none"
           >
             {cityOptions.map((city) => (
               <option key={city.value} value={city.value}>
@@ -107,7 +112,7 @@ const Weather = () => {
             ))}
           </select>
           {!isLoading && weatherData && (
-            <h3 className="text-mainGray text-5xl">
+            <h3 className="text-5xl xs2:text-3xl">
               {(weatherData.list[0].main.temp - 273.15).toFixed(0)}&deg;C
             </h3>
           )}
@@ -115,35 +120,36 @@ const Weather = () => {
           {isError && <p>Error fetching weather data.</p>}
         </div>
       </div>
-      <div className="flex justify-evenly mb-14 flex-row md2:flex-col md2:gap-4 lg3:flex-row">
+      <div className="flex justify-evenly mb-14 flex-row md2:flex-col md2:gap-4 lg3:flex-row xs3:mb-8">
         <div className="flex flex-col justify-center items-center gap-3">
           {!isLoading && weatherData && (
-            <h3 className="text-mainGray text-3xl">
+            <h3 className="text-3xl xs2:text-lg">
               {weatherData.list[0].main.humidity}%
             </h3>
           )}
           {isLoading && <p>Loading...</p>}
           {isError && <p>Error fetching weather data.</p>}
-          <h3 className="text-2xl">Humidity</h3>
+          <h3 className="text-2xl xs2:text-base">Humidity</h3>
         </div>
         <div className="flex flex-col justify-center items-center gap-3">
           {!isLoading && weatherData && (
-            <h3 className="text-mainGray text-3xl">
+            <h3 className="text-3xl xs2:text-lg">
               {weatherData.list[0].wind.speed}m/s
             </h3>
           )}
           {isLoading && <p>Loading...</p>}
           {isError && <p>Error fetching weather data.</p>}
-          <h3 className="text-2xl">Wind Speed</h3>
+          <h3 className="text-2xl xs2:text-base">Wind Speed</h3>
         </div>
       </div>
-      <div className="flex justify-between gap-4 mx-4 xl3:flex-wrap lg2:gap-1">
+      <div className="flex xs3:hidden justify-evenly mx-4 gap-1 xl2:flex-wrap lg2:gap-1">
         {weatherData && (
           <>
             {filteredData.map((day) => (
               <div
                 key={day.dt}
-                className="flex flex-col items-center justify-around text-boxHead bg-boxGreen rounded-full w-auto p-4 mb-4"
+                className="flex flex-col items-center justify-around text-mainGray
+                bg-boxRed rounded-full h-44 p-4 mb-4  "
               >
                 <img
                   src={`https://openweathermap.org/img/wn/${day.weather[0].icon}.png`}
@@ -152,12 +158,12 @@ const Weather = () => {
                 />
                 <div className="flex flex-col items-center justify-evenly">
                   <h3>
-                    <span className="text-lg font-bold">
-                      {Math.round(day.main.temp_max - 273.15)}°C
+                    <span className="text-base font-bold">
+                      {(day.main.temp_max - 273.15).toFixed(2)}°C
                     </span>
                     <br />
                     <span className="text-sm">
-                      /{Math.round(day.main.temp_min - 273.15)}°C
+                      /{(day.main.temp_min - 273.15).toFixed(2)}°C
                     </span>
                   </h3>
                 </div>
