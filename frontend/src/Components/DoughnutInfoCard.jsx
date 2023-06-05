@@ -28,7 +28,7 @@ const DoughnutInfoCard = ({ tagsData }) => {
   }, []);
 
   return (
-    <Box className=" gap-5 flex justify-start items-start w-full">
+    <Box className=" gap-5 flex justify-start items-center lg:items-start w-full">
       <Box className="h-52 hidden md:block">
         <DoughnutChart data={tagsData} total={sum} />
       </Box>
@@ -41,7 +41,7 @@ const DoughnutInfoCard = ({ tagsData }) => {
           This Month: <span className="font-bold">${sum}</span>
         </Typography>
         <Box className="hidden md:block">
-          <Grid container columns={{ xs: 4, sm: 4, md: 8 }} spacing={2}>
+          <Grid container columns={{ xs: 4, sm: 4, md: 4, lg: 8 }} spacing={2}>
             {tagsData.map((tag, index) => {
               return (
                 <Grid key={tag.id} item xs={12} sm={12} md={4}>

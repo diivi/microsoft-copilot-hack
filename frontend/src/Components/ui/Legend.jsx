@@ -10,7 +10,7 @@ const Legend = ({ label, color }) => {
         }}
         className={`h-4 w-4`}
       />
-      <Typography variant="subtitle2" fontWeight={"bold"}>
+      <Typography noWrap variant="subtitle2" fontWeight={"bold"}>
         {label}
       </Typography>
     </Box>
